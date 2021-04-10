@@ -1,1 +1,17 @@
-<p>moji-taskovi works!</p>
+<div>
+    <div>
+        <div class="zaposleni_osoba border_dashed"  *ngFor = 'let task of mojiTaskovi'>
+            <div>
+            <div class="zaposleni_info">
+                <div class="zaposleni_ime">
+                     <button style="float:right;" class="add_btn">Preuzmi</button>
+                </div>
+                <div class="zaposleni_zvanje">{{task.task_string}}
+                </div>
+                <div class="zaposleni_predmeti">{{task.longitude}} {{task.latitude}}</div> 
+            </div>
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

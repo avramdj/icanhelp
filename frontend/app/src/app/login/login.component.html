@@ -1,10 +1,10 @@
 <div class="login">
     <h1 style="text-align: center;">Prijava </h1>
             <form name="prijava">
-        <input type="text" name="u" placeholder="Username" required="required" />
-          <input type="password" name="p" placeholder="Password" required="required" />
+        <input type="text" name="u" placeholder="Username" required="required" [(ngModel)]="username"/>
+          <input type="password" name="p" placeholder="Password" required="required" [(ngModel)]="password"/>
           <tr>
-          <button type="submit" class="btn btn-primary btn-block btn-large">Uloguj se   </button>
+          <button type="submit" class="btn btn-primary btn-block btn-large" (click)='login()'>Uloguj se   </button>
           <td style="text-align:right">
             <a style="font-size:0.8em; margin-left: 10px;" (click)='preusmeri("../register")'>Kreiraj novi nalog</a>
         </td>

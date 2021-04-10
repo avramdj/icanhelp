@@ -1,4 +1,6 @@
-<div class="right_side">
+
+
+<div>
     <div class="info">
         <div class="login">
             <form name="reg_zap" class="reg_zap" >
@@ -6,13 +8,26 @@
                     <tr>
                         <td colspan="2"><h1>Registracija</h1></td>
                     </tr>
-                    <input type="text" name="u" placeholder="Username" required="required" />
-                    <input type="password" name="p" placeholder="Password" required="required" />
-                    <input type="text" name="n" placeholder="Name" required="required" />
-                    <input type="text" name="s" placeholder="Surname" required="required" />
-                    <input type="text" name="j" placeholder="JMBG" required="required" />
-                    <input type="text" name="p" placeholder="ID card number" required="required" />
-                    <button type="submit" class="btn btn-primary btn-block btn-large"> Registruj se   </button>
+                    <input type="text" name="u" placeholder="Username" required="required"  [(ngModel)]="username"/>
+                    <input type="password" name="p" placeholder="Password" required="required" [(ngModel)]="password"/>
+                    <input type="text" name="n" placeholder="Name" required="required" [(ngModel)]="name"/>
+                    <input type="text" name="s" placeholder="Surname" required="required" [(ngModel)]="surname"/>
+                    <input type="text" name="j" placeholder="JMBG" required="required" [(ngModel)]="JMBG "/>
+                    <input type="text" name="p" placeholder="ID card number" required="required" [(ngModel)]="brlicnekarte"/>
+                    <input type="text" name="p" placeholder="phone_number" required="required" [(ngModel)]="number"/>
+                    <tr>
+                        <td>
+                            <button class="submit_btn" (click)="register()">Registruj se</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td *ngIf="islogged">
+                            <span style="color:green">
+                                Uspesno registrovan.
+                            </span>
+                        </td>
+                    </tr>
+
                 </table>
             </form>
 
