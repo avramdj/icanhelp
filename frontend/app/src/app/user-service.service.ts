@@ -16,6 +16,8 @@ export class UserServiceService {
       username:username,
       password:password
     }
+    console.log("login:");
+    console.log(data);
     return this.http.post(`${this.uri}/api/user/login`,data);
   }
   //this.username,this.password,this.name,this.surname,
@@ -30,15 +32,16 @@ export class UserServiceService {
       br_licne_karte:br_licne_karte,
       phone_number:phone_number
     }
-
-    return this.http.post(`${this.uri}/api/task/new`,data);
+    console.log("Podaci su ");
+    console.log(data);
+    return this.http.post(`${this.uri}/api/user/register`,data);
   }
 
 
   ///api/task/assign/:id1/:id2
 
 
-  nearestTaskList(lat,long){
+  nearestTaskList(lat, long){
     ///api/task/listNearestTasks/:lat/:long
     return this.http.get(`${this.uri}/api/task/assign/${lat}/${long}`);
 

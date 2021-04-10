@@ -1,46 +1,13 @@
-<div class="right_side">
-    <div class="info">
-        <div class="login">
-            <h1>Prijava</h1>
+<div class="login">
+    <h1 style="text-align: center;">Prijava </h1>
             <form name="prijava">
-                <table>
-                    <tr>
-                        <td>
-                            Username: 
-                        </td>
-                        <td>
-                            <input class="oble_ivice" type="text" required="true" name = "username" [(ngModel)]='username'>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Password:
-                        </td>
-                        <td>
-                            <input class = "oble_ivice" type="password" required="true" name="password" [(ngModel)]='password'>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                           <button class = "submit_btn" (click)='login()'>Uloguj se</button>
-                        </td>
-                        <td style="text-align:right">
-                            <a style="font-size:0.8em;" (click)='preusmeri("../register")'>Kreiraj novi nalog</a>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        
-        <span *ngIf='greskaPriLogovanju' style="color:red">
-            Greska pri logovanju       </span>
-        <br>
-        <hr>
-        
-       <!-- <h1>{{ 'informacije.okatedri' | translate }}</h1>
-        
-        <p>{{ 'informacije.adresa' | translate }}</p>
-        
-        <div class="slide_show" id="slide_show"></div>-->
-    </div>
-  </div>
+        <input type="text" name="u" placeholder="Username" required="required" [(ngModel)]="username"/>
+          <input type="password" name="p" placeholder="Password" required="required" [(ngModel)]="password"/>
+          <tr>
+          <button type="submit" class="btn btn-primary btn-block btn-large" (click)='login()'>Uloguj se   </button>
+          <td style="text-align:right">
+            <a style="font-size:0.8em; margin-left: 10px;" (click)='preusmeri("../register")'>Kreiraj novi nalog</a>
+        </td>
+        </tr>
+    </form>
+</div>
