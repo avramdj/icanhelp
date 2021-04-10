@@ -12,7 +12,9 @@ router.get('/', async (req, res, next) => {
             "/:id" : "get any user by ID",
             "/register": "expects body with name, last_name, br_licne_karte, " +
                         "username, password, jmbg, phone_number. 201 on success",
-            "/login" : "expects username, password. 200 on success."
+            "/login" : "expects username, password. 200 on success.",
+            "/mytask/:id" : "JMBG instead of :id. Returns list of users tasks in 'tasks' field",
+            "/all" : "returns list of all users"
         }
     });
 })
@@ -24,11 +26,11 @@ router.get('/mytask/:id', async (req, res, next) => {
         return res.status(404).json({"ok": false, "contains": false, "message": "greska u dohvatanju korisnika"})
     }
     user_id = user._id;
-    task  = await Task.find({ "volunteer_id": user_id});
+    tasks  = await Task.find({ "volunteer_id": user_id});
     if(task.length == 0) {
         return res.status(404).json({"ok": true, "contains": false, "message": "nema taskova"})
     }
-    return res.status(200).json({"ok": true, "task": task});
+    return res.status(200).json({"ok": true, "contains": true, "tasks": tasks});
 })
 
 router.get('/all', async (req, res, next) => {
