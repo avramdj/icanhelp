@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../model/task';
+import { UserServiceService } from '../user-service.service';
 
 @Component({
   selector: 'app-moji-taskovi',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MojiTaskoviComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService:UserServiceService) { }
 
+  mojiTaskovi:Task[]=[];
   ngOnInit(): void {
+
+    this.userService.getFreeTasks().subscribe((data:Task[])=>{
+      this.mojiTaskovi=data;
+      //svi taskovi izlistani. Treba da se filtriraju samo moji taskovi.
+  });
   }
 
 }

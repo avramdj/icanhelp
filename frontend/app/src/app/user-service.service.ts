@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +31,49 @@ export class UserServiceService {
       phone_number:phone_number
     }
 
-    return this.http.post(`${this.uri}/api/user/register`,data);
+    return this.http.post(`${this.uri}/api/task/new`,data);
   }
+
+
+  ///api/task/assign/:id1/:id2
+
+
+  nearestTaskList(lat,long){
+    ///api/task/listNearestTasks/:lat/:long
+    return this.http.get(`${this.uri}/api/task/assign/:${lat}/:${long}`);
+
+  }
+  deleteTask(id){
+    ///api/task/delete/:id
+    return this.http.get(`${this.uri}/api/task/assign/:${id}`);
+  }
+  dodajVolontera(id1,id2) {
+
+    return this.http.get(`${this.uri}/api/task/assign/:${id1}/:${id2}`);
+  }
+  addTask(jmbg,task_string,latitude,longitude){
+    const data = {
+      jmbg:jmbg,
+      task_string:task_string,
+      latitude:latitude,
+      longitude:longitude
+    }
+
+    return this.http.post(`${this.uri}/api/user/register`,data);
+
+  }
+  getTasks(){
+    return this.http.get(`${this.uri}/api/task/listTasks`);
+
+  }
+  getFreeTasks(){
+    return this.http.get(`${this.uri}/api/task/listFreeTasks`);
+  }
+
+  /*
+    /api/task/new requires { “jmbg” : String, “task_string” : String, “latitude” : Number/String, “longitude” : Number/String }
+
+  */ 
 }
 
 

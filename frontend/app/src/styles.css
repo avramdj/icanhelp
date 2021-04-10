@@ -472,6 +472,14 @@ color:#3076b8;
 }
 
 
+.checkbox__control {
+    display: inline-grid;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.25em;
+    border: 0.1em solid currentColor;
+  }
+
 
 
 
