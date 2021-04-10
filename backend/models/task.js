@@ -15,6 +15,14 @@ const schema = mongoose.Schema({
     task_string: {
         type: String,
         required: true
+    },
+    latitude: {
+            type: Number,
+            required: true,
+    },
+    longitude: {
+            type: Number,
+            required: true
     }
 });
 

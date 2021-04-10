@@ -48,34 +48,36 @@ router.post('/assign/:id1/:id2',async (req,res,next) => {
 
         // Assign volunteer with id1 to requester with id2
 
-        const jmbg1 = req.params.id1;
-        const jmbg2 = req.params.id2;
+        try {
+                const jmbg1 = req.params.id1;
+                const jmbg2 = req.params.id2;
 
-        const user1 = await User.findOne({'jmbg':jmbg1}).exec();
-        const user2 = await User.findOne({'jmbg':jmbg2}).exec();
+                const user1 = await User.findOne({'jmbg':jmbg1}).exec();
+                const user2 = await User.findOne({'jmbg':jmbg2}).exec();
 
-        if(user1 == null || user2 == null) {
-                res.status(404).json({
-                        message: "Failed to find user!"
+                if(user1 == null || user2 == null) {
+                        throw new Error("Failed to find user!");
+                }
+
+                const task = await Task.findOne({'request_user_id' : user2._id}).exec();
+
+                if(task == null) {
+                        throw new Error("Task not found!");
+                }
+
+                await task.updateOne({"volunteer_id": user1._id}).exec().catch(function(err) {
+                        throw err;
                 });
+
+                res.status(201).json({
+                        message: "Added volunteer to task",
+                        info: [user1,user2,task]
+                });;
+
         }
-
-        const task = await Task.findOne({'request_user_id' : user2._id}).exec();
-
-        if(task == null) {
-                res.status(404).json({
-                        message: "Task not found!"
-                });
+        catch (error) {
+                next(error);
         }
-
-        await task.updateOne({"volunteer_id": user1._id}).exec().catch(function(err) {
-                next(err);
-        });
-
-        res.status(201).json({
-                message: "Added volunteer to task",
-                info: [user1,user2,task]
-        });;
 });
 
 router.post('/new', async (req, res, next) => {
@@ -105,6 +107,33 @@ router.post('/new', async (req, res, next) => {
                 next(error);
         }
 })
+
+router.post('/delete/:id',async (req,res,next) => {
+
+        try{
+                const taskOwner = await User.findOne({"jmbg":req.params.id}).exec();
+
+                if(taskOwner == null) {
+                        throw new Error("Task owner not found!");
+                }
+
+                const taskFound = await Task.findOne({"request_user_id" : taskOwner._id}).exec();
+
+                if(taskFound == null) {
+                        throw new Error("Task not found!");
+                }
+
+                await taskFound.remove();
+
+                res.status(200).json({
+                        message: "Task deleted",
+                        task: taskFound
+                });
+        }
+        catch(error) {
+                next(error);
+        }
+});
 
 module.exports = router;
 
