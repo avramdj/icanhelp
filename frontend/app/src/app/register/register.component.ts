@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
   //name,last_name,username,password,jmbg,br_licne_karte,phone_number
   uspesnoRegistrovan:Boolean;
   greskaPriRegistraciji:Boolean;
+  islogged:Boolean;
   ngOnInit(): void {
    
     this.uspesnoRegistrovan=false;
@@ -32,13 +33,14 @@ export class RegisterComponent implements OnInit {
       this.user=JSON.parse(localStorage.getItem('user'));
     }
   }
-  
+
     register(){
       this.servis.register(this.name,this.surname,this.username,this.password,
         this.JMBG,this.brlicnekarte,this.number).subscribe(ob=>{
-          if(ob['user']=='ok'){
+          if(ob['message']=='success'){
             this.uspesnoRegistrovan = true;
             this.greskaPriRegistraciji=false;
+            this.islogged=true;
             setTimeout(this.preusmeriNaLogin.bind(this),2000);
             //this.preusmeriNaLogin();
           }

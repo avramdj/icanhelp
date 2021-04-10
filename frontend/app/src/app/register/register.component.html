@@ -68,6 +68,14 @@
                             <button class="submit_btn" (click)="register()">Registruj se</button>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td *ngIf="islogged">
+                            <span style="color:green">
+                                Uspesno registrovan.
+                            </span>
+                        </td>
+                    </tr>
                 </table>
             </form>
 

@@ -467,7 +467,6 @@ color:#3076b8;
 }
 
 
-
 .centered{
     margin:200px 200px 150px 50px;
 }
@@ -561,6 +560,10 @@ width:90%;
 ul.side_bar li:hover ul.sub_list{
 left:30%;
 width:50%;
+}
+
+.centered{
+    margin:200px 200px 150px 50px;
 }
 
 

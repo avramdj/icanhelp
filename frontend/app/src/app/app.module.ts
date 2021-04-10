@@ -11,6 +11,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
 import { VolontirajComponent } from './volontiraj/volontiraj.component';
 import { ZahtevajVolontiranjeComponent } from './zahtevaj-volontiranje/zahtevaj-volontiranje.component';
+import { SlobodniTaskoviComponent } from './slobodni-taskovi/slobodni-taskovi.component';
+import { MojiTaskoviComponent } from './moji-taskovi/moji-taskovi.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { ZahtevajVolontiranjeComponent } from './zahtevaj-volontiranje/zahtevaj-
     RegisterComponent,
     MenuComponent,
     VolontirajComponent,
-    ZahtevajVolontiranjeComponent
+    ZahtevajVolontiranjeComponent,
+    SlobodniTaskoviComponent,
+    MojiTaskoviComponent
   ],
   imports: [
     BrowserModule,

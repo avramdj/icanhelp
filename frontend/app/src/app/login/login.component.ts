@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.username,this.password).subscribe((user:User)=>{
       if(user){
         localStorage.setItem('user',JSON.stringify(user));
-        this.router.navigate(['userDashboard']);
+        this.router.navigate(['menu']);
         this.isLoggedIn=true;
         this.greskaPriLogovanju=false;
       }
