@@ -60,20 +60,20 @@ router.get('/:id', async (req, res, next) => {
 })
 */
 
-router.post('/listTasks', async (req, res, next) => {
+router.get('/listTasks', async (req, res, next) => {
 
         const allTasks = await Task.find().exec();
         res.json(allTasks);
 })
 
-router.post('/listFreeTasks', async (req,res,next) => {
+router.get('/listFreeTasks', async (req,res,next) => {
 
         const freeTasks = await Task.find({'volunteer_id' : {$exists:false}}).exec();
 
         res.json(freeTasks);
 });
 
-router.post('/listNearestTasks/:lat/:long', async (req,res,next) => {
+router.get('/listNearestTasks/:lat/:long', async (req,res,next) => {
 
         try{
                 let freeTasks = await Task.find({'volunteer_id' : {$exists:false}}).exec();
@@ -99,7 +99,7 @@ router.post('/listNearestTasks/:lat/:long', async (req,res,next) => {
 //router.post('/listActiveTasks',async (req,rex,next) => {
 //});
 
-router.post('/assign/:id1/:id2',async (req,res,next) => {
+router.get('/assign/:id1/:id2',async (req,res,next) => {
 
         // Assign volunteer with id1 to requester with id2
 
@@ -120,7 +120,7 @@ router.post('/assign/:id1/:id2',async (req,res,next) => {
                         throw new Error("Task not found!");
                 }
 
-                await task.updateOne({"volunteer_id": user1._id}).exec().catch(function(err) {
+                await task.updateOne({"volunteer_id": user1._id,"task_assign_date": Date.now()}).exec().catch(function(err) {
                         throw err;
                 });
 
@@ -148,7 +148,8 @@ router.post('/new', async (req, res, next) => {
                         request_user_id: taskOwner._id,
                         task_string: req.body.task_string,
                         latitude: parseFloat(req.body.latitude),
-                        longitude: parseFloat(req.body.longitude)
+                        longitude: parseFloat(req.body.longitude),
+                        task_creation_date: Date.now()
                 });
 
                 await newTask.save().catch(function(err) {
@@ -167,7 +168,7 @@ router.post('/new', async (req, res, next) => {
         }
 })
 
-router.post('/delete/:id',async (req,res,next) => {
+router.get('/delete/:id',async (req,res,next) => {
 
         try{
                 const taskOwner = await User.findOne({"jmbg":req.params.id}).exec();
@@ -181,6 +182,8 @@ router.post('/delete/:id',async (req,res,next) => {
                 if(taskFound == null) {
                         throw new Error("Task not found!");
                 }
+
+                taskFound.task_deletion_date = Date.now();
 
                 let swap = new DeletedTask(taskFound.toJSON());
 

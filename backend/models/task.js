@@ -23,6 +23,19 @@ const schema = mongoose.Schema({
     longitude: {
             type: Number,
             required: true
+    },
+    task_assign_date: {
+            type: Date,
+            default: null,
+            required: false
+    },
+    task_creation_date: {
+            type: Date,
+            required: true
+    },
+    task_deletion_date: {
+            type: Date,
+            required: false
     }
 });
 
