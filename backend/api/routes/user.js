@@ -27,6 +27,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/register', async (req, res, next) => {
     let form = req.body;
+    try{
         const newUser = new User({
             _id: mongoose.Types.ObjectId(),
             name: form.name,
@@ -37,19 +38,20 @@ router.post('/register', async (req, res, next) => {
             jmbg: form.jmbg,
             phone_number: form.phone_number
         })
-        const saved = newUser.save(function(error){
-            if(error) {
-                return res.status(201).json({"message": "failure"}); 
-            }
-        });
+        await newUser.save().catch(function(error){
+            throw new Error("Greska pri registraciji")
+        })
         return res.status(201).json({"message": "success"}); 
+    } catch(error){
+        next(error);
+    }
 
 })
 
 router.post('/login', async (req, res, next) => {
     let form = req.body;
-    const found = User.findOne({"username": form.username, "password": form.password});
-    if(found == undefined){
+    const found = await User.findOne({"username": form.username, "password": form.password});
+    if(found){
         return res.status(200).json({"message": "success", "user": found}); 
     } else {
         return res.status(404).json({"message": "failure"}); 
