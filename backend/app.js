@@ -37,19 +37,21 @@ app.use('/api/task', taskApi);
 //         message: "api/user for user info"
 //     });
 // });
-
-app.use('/api', function (error, req, res, next) {
-    const statusCode = error.status || 500;
-    return res.status(statusCode).json({
-        message: error.message,
-    });
-});
+//
+//app.use('/api', function (error, req, res, next) {
+//    const statusCode = error.status || 500;
+//    return res.status(statusCode).json({
+//        message: error.message,
+//        ok: false
+//    });
+//});
 
 app.use(function (error, req, res, next) {
     const statusCode = error.status || 500;
     return res.status(statusCode).json({
-        errorMessage: error.message,
-        errorCode: statusCode
+        message: error.message,
+        errorCode: statusCode,
+        ok: false
     });
 });
 
