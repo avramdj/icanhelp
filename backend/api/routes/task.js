@@ -88,7 +88,7 @@ router.post('/listNearestTasks/:lat/:long', async (req,res,next) => {
                 }
 
                 res.json(freeTasks.sort((a,b) => {
-                        return distance(objInfo,a) < distance(objInfo,b);
+                        return distance(objInfo,a) > distance(objInfo,b);
                 }));
         }
         catch (error) {
