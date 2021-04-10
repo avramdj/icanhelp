@@ -13,6 +13,7 @@ import { VolontirajComponent } from './volontiraj/volontiraj.component';
 import { ZahtevajVolontiranjeComponent } from './zahtevaj-volontiranje/zahtevaj-volontiranje.component';
 import { SlobodniTaskoviComponent } from './slobodni-taskovi/slobodni-taskovi.component';
 import { MojiTaskoviComponent } from './moji-taskovi/moji-taskovi.component';
+import { OKorisnikuComponent } from './o-korisniku/o-korisniku.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MojiTaskoviComponent } from './moji-taskovi/moji-taskovi.component';
     VolontirajComponent,
     ZahtevajVolontiranjeComponent,
     SlobodniTaskoviComponent,
-    MojiTaskoviComponent
+    MojiTaskoviComponent,
+    OKorisnikuComponent
   ],
   imports: [
     BrowserModule,

@@ -21,9 +21,17 @@ export class SlobodniTaskoviComponent implements OnInit {
   });
   }
 
+  ukloni(task:Task){
+    this.taskovi.splice(this.taskovi.indexOf(task), 1);
+  }
   preuzmi(id1:string,id2:string){
-      this.userService.dodajVolontera(id1,id2).subscribe((data:Task[])=>{
-        this.userService.deleteTask(id1).subscribe((data:Task[])=>{
+      this.userService.dodajVolontera(id1,id2).subscribe((data:Task[])=>{//dodaj u mojeTaskove u bazi
+        this.userService.deleteTask(id1).subscribe((data:Task[])=>{//ukloni iz slobodnih taskova u bazi
+          this.taskovi.forEach(elem=>{
+            if(elem.korisnik.jmbg==id1){
+              this.taskovi.splice(this.taskovi.indexOf(elem)); // ukloni odmah i iz moje liste
+            }
+          })
       })
     })
   }
