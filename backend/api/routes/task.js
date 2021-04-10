@@ -41,6 +41,29 @@ router.post('/listFreeTasks', async (req,res,next) => {
         res.json(freeTasks);
 });
 
+router.post('/listNearestTasks/:lat/:long', async (req,res,next) => {
+
+        try{
+                let freeTasks = await Task.find({'volunteer_id' : {$exists:false}}).exec();
+
+                const objInfo = {
+                        "latitude" : parseFloat(req.params.lat),
+                        "longitude" : parseFloat(req.params.long)
+                }
+
+                function distance(a,b) {
+                        return Math.sqrt((a.longitude-b.longitude)**2 + (a.latitude-b.latitude)**2);
+                }
+
+                res.json(freeTasks.sort((a,b) => {
+                        return distance(objInfo,a) < distance(objInfo,b);
+                }));
+        }
+        catch (error) {
+                next(error);
+        }
+});
+
 //router.post('/listActiveTasks',async (req,rex,next) => {
 //});
 
@@ -95,7 +118,9 @@ router.post('/new', async (req, res, next) => {
                         longitude: parseFloat(req.body.longitude)
                 });
 
-                await newTask.save();
+                await newTask.save().catch(function(err) {
+                        throw err;
+                });
 
                 res.status(201).json({
                         status: "Success",
