@@ -48,9 +48,9 @@ router.post('/new', async (req, res, next) => {
 
                 await newTask.save();
 
-                res.json({
-                        status: "Saved",
-                        info: newTask
+                res.status(201).json({
+                        status: "Success",
+                        saved: newTask
                 });
         }
         catch (error) {
