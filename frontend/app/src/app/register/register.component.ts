@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../model/user';
 import { UserServiceService } from '../user-service.service';
 
 @Component({
@@ -19,22 +20,31 @@ export class RegisterComponent implements OnInit {
   number:string;
   JMBG:string;
   brlicnekarte:string;
+  user:User;
   //name,last_name,username,password,jmbg,br_licne_karte,phone_number
   uspesnoRegistrovan:Boolean;
   greskaPriRegistraciji:Boolean;
   ngOnInit(): void {
-    this.servis.register(this.name,this.surname,this.username,this.password,
-      this.JMBG,this.brlicnekarte,this.number).subscribe(ob=>{
-        if(ob['user']=='ok'){
-          this.uspesnoRegistrovan = true;
-          this.greskaPriRegistraciji=false;
-          setTimeout(this.preusmeriNaLogin.bind(this),2000);
-          //this.preusmeriNaLogin();
-        }
-
-      })
+   
+    this.uspesnoRegistrovan=false;
+    this.greskaPriRegistraciji=false;
+    if(localStorage.getItem('user')){
+      this.user=JSON.parse(localStorage.getItem('user'));
     }
-
+  }
+  
+    register(){
+      this.servis.register(this.name,this.surname,this.username,this.password,
+        this.JMBG,this.brlicnekarte,this.number).subscribe(ob=>{
+          if(ob['user']=='ok'){
+            this.uspesnoRegistrovan = true;
+            this.greskaPriRegistraciji=false;
+            setTimeout(this.preusmeriNaLogin.bind(this),2000);
+            //this.preusmeriNaLogin();
+          }
+  
+        })
+    }
 
     preusmeriNaLogin(){
       this.router.navigate(['../login'], {relativeTo: this.route});

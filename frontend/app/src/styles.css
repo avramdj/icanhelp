@@ -211,6 +211,8 @@ background-color:#205a91;
     background-color:#205a91;
     color:white;
 }
+
+
 form{
 vertical-align: text-top;
 padding:0 50px 0 0;
@@ -442,6 +444,38 @@ color:#3076b8;
     background-color: #ddd;
     color: black;
 }
+
+
+
+.vol_btn{
+    background-color:#ffffff;
+    color:gray;
+    border:none;
+    padding:4px;
+    border-radius:6px;
+    cursor:pointer;
+    border:solid gray 1px;
+    transition:background-color 0.2s ease;
+    width:600px;
+    height:100px;
+    font-size: 30px;
+}
+    
+.vol_btn:hover{
+    background-color:#205a91;
+    color:white;
+}
+
+
+
+.centered{
+    margin:200px 200px 150px 50px;
+}
+
+
+
+
+
 
 @media screen and (max-width:850px){
 .left_side{
