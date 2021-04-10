@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../model/task';
+import { User } from '../model/user';
 import { UserServiceService } from '../user-service.service';
 
 @Component({
@@ -9,14 +10,24 @@ import { UserServiceService } from '../user-service.service';
 })
 export class MojiTaskoviComponent implements OnInit {
 
-  constructor(private userService:UserServiceService) { }
+  constructor(private userService:UserServiceService) { 
+    if(localStorage.getItem('user')){
+      this.user = JSON.parse(localStorage.getItem('user'))
+    }
+  }
 
   mojiTaskovi:Task[]=[];
+  user:User;
   ngOnInit(): void {
-
-    this.userService.getFreeTasks().subscribe((data:Task[])=>{
+    if(localStorage.getItem('user')){
+      this.user = JSON.parse(localStorage.getItem('user'))['user'];
+    
+    }
+    console.log(this.user);
+    this.userService.mojiTaskovi(this.user.jmbg).subscribe((data:Task[])=>{
       this.mojiTaskovi=data;
-      //svi taskovi izlistani. Treba da se filtriraju samo moji taskovi.
+      //console.log(data);
+      
   });
   }
 

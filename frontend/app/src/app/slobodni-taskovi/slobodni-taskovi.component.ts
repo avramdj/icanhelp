@@ -11,11 +11,11 @@ export class SlobodniTaskoviComponent implements OnInit {
 
   constructor(private userService:UserServiceService) { }
 
-  mojiTaskovi:Task[]=[];
+  taskovi:Task[]=[];
   ngOnInit(): void {
 
     this.userService.getFreeTasks().subscribe((data:Task[])=>{
-      this.mojiTaskovi=data;
+      this.taskovi=data;
       //svi taskovi izlistani. Treba da se filtriraju samo moji taskovi.
   });
   }

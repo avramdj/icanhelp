@@ -1,5 +1,7 @@
+import { User } from "./user";
+
 export class Task{
-    jmbg:String;
+    korisnik:User;
     task_string:String;
     latitude:String;
     longitude:String;

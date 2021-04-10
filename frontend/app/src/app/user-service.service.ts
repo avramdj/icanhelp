@@ -40,8 +40,13 @@ export class UserServiceService {
 
   nearestTaskList(lat,long){
     ///api/task/listNearestTasks/:lat/:long
-    return this.http.get(`${this.uri}/api/task/assign/:${lat}/:${long}`);
+    return this.http.get(`${this.uri}/api/task/assign/${lat}/${long}`);
 
+  }
+
+  mojiTaskovi(id){
+    ///api/task/listNearestTasks/:lat/:long
+    return this.http.get(`${this.uri}/api/mytask/${id}`);
   }
   deleteTask(id){
     ///api/task/delete/:id
@@ -49,7 +54,7 @@ export class UserServiceService {
   }
   dodajVolontera(id1,id2) {
 
-    return this.http.get(`${this.uri}/api/task/assign/:${id1}/:${id2}`);
+    return this.http.get(`${this.uri}/api/task/assign/${id1}/${id2}`);
   }
   addTask(jmbg,task_string,latitude,longitude){
     const data = {
