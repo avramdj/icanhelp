@@ -6,7 +6,13 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
     return res.status(200).json({
-        message: "User api"
+        message: "User api",
+        documentation: {
+            "/:id" : "get any user by ID",
+            "/register": "expects body with name, last_name, br_licne_karte, " +
+                        "username, password, jmbg, phone_number. 201 on success",
+            "/login" : "expects username, password. 200 on success."
+        }
     });
 })
 
