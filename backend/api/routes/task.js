@@ -62,13 +62,19 @@ router.get('/:id', async (req, res, next) => {
 
 router.get('/listTasks', async (req, res, next) => {
 
-        const allTasks = await Task.find().populate('request_user_id').exec();
+        const allTasks = await Task.find()
+                .populate('request_user_id')
+                .populate('volunteer_id')
+                .exec();
         res.json(allTasks);
 })
 
 router.get('/listFreeTasks', async (req,res,next) => {
 
-        const freeTasks = await Task.find({'volunteer_id' : {$exists:false}}).populate('request_user_id').exec();
+        const freeTasks = await Task.find({'volunteer_id' : {$exists:false}})
+                .populate('request_user_id')
+                .populate('volunteer_id')
+                .exec();
 
         res.json(freeTasks);
 });
@@ -76,7 +82,10 @@ router.get('/listFreeTasks', async (req,res,next) => {
 router.get('/listNearestTasks/:lat/:long', async (req,res,next) => {
 
         try{
-                let freeTasks = await Task.find({'volunteer_id' : {$exists:false}}).populate('request_user_id').exec();
+                let freeTasks = await Task.find({'volunteer_id' : {$exists:false}})
+                        .populate('request_user_id')
+                        .populate('volunteer_id')
+                        .exec();
 
                 const objInfo = {
                         "latitude" : parseFloat(req.params.lat),
@@ -99,11 +108,38 @@ router.get('/listNearestTasks/:lat/:long', async (req,res,next) => {
 //router.post('/listActiveTasks',async (req,rex,next) => {
 //});
 
+router.get('/unassign/:id', async (req,res,next) => {
+
+        try {
+                const foundUser = User.findOne({"jmbg" : req.params.id});
+
+                if(foundUser == null) {
+                        throw new Error("User not found!");
+                }
+
+                const foundTask = Task.findOne({"request_user_id" : foundUser._id});
+
+                if(foundTask == null) {
+                        throw new Error("Task not found!");
+                }
+
+                await foundTask.update({ "volunteer_id" : null }).exec();
+        }
+        catch (error) {
+        }
+
+});
+
 router.get('/assign/:id1/:id2',async (req,res,next) => {
 
         // Assign volunteer with id1 to requester with id2
 
         try {
+
+                if(req.params.id1 == req.params.id2) {
+                        throw new Error("Cannot volunteer for own task!");
+                }
+
                 const jmbg1 = req.params.id1;
                 const jmbg2 = req.params.id2;
 
