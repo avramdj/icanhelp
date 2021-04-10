@@ -10,6 +10,7 @@ const schema = mongoose.Schema({
     },
     volunteer_id: {
         type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
         required: false
     },
     task_string: {
