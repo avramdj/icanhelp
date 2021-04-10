@@ -6,7 +6,7 @@ const schema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true
     },
-    request_user_id: {
+    volunteer_id: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
     },
