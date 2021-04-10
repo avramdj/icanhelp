@@ -21,4 +21,11 @@ export class SlobodniTaskoviComponent implements OnInit {
   });
   }
 
+  preuzmi(id1:string,id2:string){
+      this.userService.dodajVolontera(id1,id2).subscribe((data:Task[])=>{
+        this.userService.deleteTask(id1).subscribe((data:Task[])=>{
+      })
+    })
+  }
+
 }

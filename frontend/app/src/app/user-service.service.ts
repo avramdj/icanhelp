@@ -53,10 +53,9 @@ export class UserServiceService {
   }
   deleteTask(id){
     ///api/task/delete/:id
-    return this.http.get(`${this.uri}/api/task/assign/:${id}`);
+    return this.http.get(`${this.uri}/api/task/delete/${id}`);
   }
   dodajVolontera(id1,id2) {
-
     return this.http.get(`${this.uri}/api/task/assign/${id1}/${id2}`);
   }
   addTask(jmbg,task_string,latitude,longitude){

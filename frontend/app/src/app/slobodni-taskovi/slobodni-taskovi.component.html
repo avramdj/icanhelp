@@ -4,7 +4,8 @@
             <div>
             <div class="zaposleni_info">
                 <div class="zaposleni_ime">
-                     <button style="float:right;" class="add_btn">Preuzmi</button>
+                    {{task.request_user_id.name}} {{task.request_user_id.last_name}}
+                     <button style="float:right;" class="add_btn" (click)="preuzmi(task.request_user_id.jmbg)">Preuzmi</button>
                 </div>
                 <div class="zaposleni_zvanje">{{task.task_string}}
                 </div>
