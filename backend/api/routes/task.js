@@ -62,13 +62,13 @@ router.get('/:id', async (req, res, next) => {
 
 router.get('/listTasks', async (req, res, next) => {
 
-        const allTasks = await Task.find().exec();
+        const allTasks = await Task.find().populate('request_user_id').exec();
         res.json(allTasks);
 })
 
 router.get('/listFreeTasks', async (req,res,next) => {
 
-        const freeTasks = await Task.find({'volunteer_id' : {$exists:false}}).exec();
+        const freeTasks = await Task.find({'volunteer_id' : {$exists:false}}).populate('request_user_id').exec();
 
         res.json(freeTasks);
 });
@@ -76,7 +76,7 @@ router.get('/listFreeTasks', async (req,res,next) => {
 router.get('/listNearestTasks/:lat/:long', async (req,res,next) => {
 
         try{
-                let freeTasks = await Task.find({'volunteer_id' : {$exists:false}}).exec();
+                let freeTasks = await Task.find({'volunteer_id' : {$exists:false}}).populate('request_user_id').exec();
 
                 const objInfo = {
                         "latitude" : parseFloat(req.params.lat),
@@ -120,6 +120,10 @@ router.get('/assign/:id1/:id2',async (req,res,next) => {
                         throw new Error("Task not found!");
                 }
 
+                if(task.volunteer_id != null) {
+                        throw new Error("Task already assigned!");
+                }
+
                 await task.updateOne({"volunteer_id": user1._id,"task_assign_date": Date.now()}).exec().catch(function(err) {
                         throw err;
                 });
@@ -128,7 +132,7 @@ router.get('/assign/:id1/:id2',async (req,res,next) => {
                         message: "Added volunteer to task",
                         ok: true,
                         info: [user1,user2,task]
-                });;
+                });
 
         }
         catch (error) {
