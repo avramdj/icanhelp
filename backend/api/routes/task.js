@@ -7,9 +7,40 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
     return res.status(200).json({
-        message: "Task api"
-    });
+        message: "Task api",
+   });
 })
+
+router.get('/docs', async(req,res,next) => {
+        res.send(`              Task:
+
+                        /api/task/docs Dokumentacija
+
+                        /api/task/listTasks returns [Task]
+                        
+                        Vraca niz svih taskova.
+                        
+                        /api/task/new requires { “jmbg” : String, “task_string” : String, “latitude” : Number/String, “longitude” : Number/String }
+                        
+                        Pravi novi task
+                        
+                        /api/task/assign/:id1/:id2 requires :id1 = JMBG1, :id2 = JMBG2
+                        
+                        Stavlja korisnika JMBG1 na task korisnika JMBG2 ukoliko postoji
+                        
+                        /api/task/listFreeTasks returns [Task]
+                        
+                        Vraca niz svih taskova koji *nisu* dodeljeni volonteru
+                        
+                        /api/task/delete/:id requires :id = JMBG
+                        
+                        Brise task korisnika sa JMBG-om :id
+                        
+                        /api/task/listNearestTasks/:lat/:long requires :lat = Number, :long = Number
+                        
+                        Vraca niz [Task] najblizih taskova prosledjenim parametrima
+`);
+});
 
 /*
 router.get('/:id', async (req, res, next) => {
