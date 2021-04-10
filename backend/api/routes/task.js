@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
     return res.status(200).json({
+        ok: true,
         message: "Task api",
    });
 })
@@ -125,6 +126,7 @@ router.post('/assign/:id1/:id2',async (req,res,next) => {
 
                 res.status(201).json({
                         message: "Added volunteer to task",
+                        ok: true,
                         info: [user1,user2,task]
                 });;
 
@@ -155,6 +157,7 @@ router.post('/new', async (req, res, next) => {
 
                 res.status(201).json({
                         status: "Success",
+                        ok: true,
                         saved: newTask
                 });
         }
@@ -183,6 +186,7 @@ router.post('/delete/:id',async (req,res,next) => {
 
                 res.status(200).json({
                         message: "Task deleted",
+                        ok: true,
                         task: taskFound
                 });
         }
