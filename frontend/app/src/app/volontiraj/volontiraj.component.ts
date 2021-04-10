@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-volontiraj',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VolontirajComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+
+  preusmeri(gde:String){
+    this.router.navigate([gde], {relativeTo: this.route});
   }
 
 }
