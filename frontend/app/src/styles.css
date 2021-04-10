@@ -1,1 +1,567 @@
-/* You can add global styles to this file, and also import other style files */
+html{
+    user-select: none;
+}
+@font-face {
+    font-family: oswald;
+    src: url("fonts/oswald.ttf");
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #444444;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #cccccc;
+}
+body{
+position:absolute;
+width:100%;
+margin: 0 !important;
+padding: 0 !important;
+font-family:oswald;
+}
+
+a{
+    cursor: pointer;
+}
+.burger{
+display:none;
+}
+.left_side{
+background:linear-gradient(45deg, #dddddd 0%, #ffffff 100%);
+position:absolute;
+margin:0;
+top:0;
+left:30px;
+width:300px;
+min-height:1000px;
+height:100%;
+z-index: 1;
+}
+
+.right_side{
+margin:20px 50px 50px 350px;
+}
+
+.head_title{
+position:static;
+min-height:100px;
+height:auto;
+width:100%;
+margin: 0;
+padding: 10px 0 0 0;
+background:linear-gradient(45deg, #3076b8 0%, #3287a8 100%);
+-webkit-box-shadow: 3px 3px 15px 8px rgba(0,0,0,0.3);
+box-shadow: 3px 3px 15px 8px rgba(0,0,0,0.3);
+}
+
+
+.head_title_text{
+font-size:3em;
+color:white;
+position:relative;
+margin-left:400px;
+text-shadow: 2px 2px 2px gray;
+}
+
+.etf_logo{
+height:80px;
+margin-left:20px;
+margin-top:10px;
+cursor:pointer;
+background-size: auto 80px;
+background-repeat: no-repeat;
+}
+
+.left_side hr{
+width:80%;
+}
+
+ul.side_bar li a:hover{
+color:#777777;
+}
+
+ul.sub_list li a:hover{
+color:#dddddd;
+}
+
+ul.side_bar{
+list-style-type: none;
+margin: 0 10% 10% 10%;
+padding: 0;
+font-size:1.5em;
+}
+
+ul.side_bar li a{
+text-decoration:none;
+color: inherit;
+}
+
+ul.side_bar hr{
+width:100%;
+margin:2px 10% 2px 0;
+}
+
+ul.sub_list{
+display:none;
+list-style-type: none;
+font-size:0.8em;
+padding: 0;
+height:0;
+background:transparent;
+color:white;
+width:0;
+margin:0;
+animation:fade 0.3s ease;
+}
+
+@keyframes fade {
+0%  {background-color: transparent;}
+100%  {background-color: #3076b8;}
+}
+ul.sub_list li{
+border-bottom:dotted 1px #eeeeee;
+}
+
+ul.side_bar li:hover ul.sub_list{
+display:block;
+position:absolute;
+left:50%;
+margin:-2em 0 0 0;
+padding: 10px 30px;
+height:auto;
+width:200px;
+background:#3076b8;
+}
+
+a:visited{
+color:blue;
+}
+a{
+text-decoration:none;
+}
+a:hover{
+color:#777777;
+}
+
+ul.sub_list > li:before {
+display: inline-block;
+content: "-";
+width: 1em;
+margin-left: -1em;
+}
+
+
+    
+
+.slide_show{
+margin:10px 0 10px 0;
+width:30vw;
+height:20vw;
+
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.submit_btn{
+background-color:#3076b8;
+color:white;
+border:none;
+padding:8px;
+border-radius:10px;
+cursor:pointer;
+margin-top: 10px;
+}
+
+.submit_btn:hover{
+background-color:#205a91;
+}
+
+.remove_btn{
+    background-color:#ffffff;
+    color:gray;
+    border:none;
+    padding:4px;
+    border-radius:6px;
+    cursor:pointer;
+    border:solid gray 1px;
+    transition:background-color 0.2s ease;
+}
+
+.remove_btn:hover{
+    background-color:darkred;
+    color:white;
+}
+
+.add_btn{
+    background-color:#ffffff;
+    color:gray;
+    border:none;
+    padding:4px;
+    border-radius:6px;
+    cursor:pointer;
+    border:solid gray 1px;
+    transition:background-color 0.2s ease;
+}
+    
+.add_btn:hover{
+    background-color:#205a91;
+    color:white;
+}
+
+
+form{
+vertical-align: text-top;
+padding:0 50px 0 0;
+position:relative;
+display:inline-block;
+}
+.burger.open{
+
+background-size: 30px 30px;
+}
+
+.left_side.open{
+display:block;
+}
+
+.reg_zap{
+}
+
+
+.page_title{
+padding:10px 0;
+font-size:2em;
+}
+
+.border_dashed{
+border-bottom:dashed 1px #bbbbbb;
+}
+
+.page_subtitle{
+font-weight:500;
+font-size:0.7em;
+}
+
+.page_subtitle2{
+font-size:1.2em;
+cursor:pointer;
+}
+
+.zaposleni_osoba,.obavestenje{
+position:relative;
+cursor:pointer;
+float:left;
+width:100%;
+height:auto;
+transition:background-color 0.2s ease;
+padding:10px;
+}
+.predmet a{
+font-size:1.3em;
+cursor:pointer;
+color:black;
+
+}
+.predmet a:hover{
+color:#777777;
+}
+.obavestenje{
+cursor:default;
+width:80%;
+}
+
+.sifra_predmeta{
+font-size:0.7em;
+color:#003d69;
+display:none;
+}
+.sifra_predmeta2{
+font-size:0.7em;
+color:#003d69;
+}
+.predmet a:hover .sifra_predmeta{
+display:inline;
+}
+.obavestenje_datum{
+display:inline;
+color:#333333;
+font-size:0.8em;
+background-color:#efefef;
+padding:5px;
+border-radius:8px;
+}
+
+.obavestenje_tekst{
+position:relative;
+float:left;
+width:100%;
+margin-top:10px;
+}
+
+.zaposleni_osoba:hover{
+background-color:#efefef;
+}
+
+.zaposleni_info{
+max-width:50%;
+position:relative;
+margin-left:10px;
+float:left;
+}
+
+.zaposleni_slika{
+max-width:40%;
+width:100px;
+height:120px;
+position:relative;
+float:left;
+}
+
+.zaposleni_ime,.obavestenje_naslov{
+position:relative;
+float:left;
+width:100%;
+font-size:1.4em;
+}
+
+.zaposleni_zvanje{
+position:relative;
+width:100%;
+float:left;
+font-size:0.8em;
+color:#333333;
+}
+
+.zaposleni_predmeti{
+position:relative;
+width:100%;
+float:left;
+font-size:1em;
+color:#3076b8;
+}
+
+.jedanspisak{
+    width:30%;
+    margin:1.5%;
+    float:left;
+    position: relative;
+    border-bottom: dashed 1px gray;
+    padding-bottom: 10px;
+}
+
+.korisnici{    
+    font-size: 1.2em;
+    width:90%;
+    margin-left: 10px;
+    float:left;
+    position: relative;
+}
+.status{
+    width:100%;
+    float:left;
+    position: relative;
+}
+.imena{
+    font-size: 1em;
+    margin-left: 12px;
+    width:100%;
+    float:left;
+    position: relative;
+    font-style: italic;
+    color:#444444;
+}
+
+.imespiska{
+    font-size: 2em;
+    width:100%;
+    float:left;
+    position: relative;
+}
+
+.oble_ivice_register_select{
+    border-radius: 5px;
+    border: 2px solid#3076b8;
+    width: 190px;
+    height:23px;
+}
+.oble_ivice_register{
+    border-radius: 5px;
+    border: 2px solid#3076b8;
+    width: 150px;
+    height:17px;
+}
+.oble_ivice {
+    border-radius: 15px;
+    border: 2px solid#3076b8;
+    padding: 10px;
+    width: 150px;
+    height: 0.1px;
+    outline-width: 0;
+}
+
+.uslov_i_cilj{
+    border-radius: 15px;
+    border: 2px solid#3076b8;
+    padding: 10px;
+    width: 400px;
+    height: 100px;
+    outline-width: 0;
+}
+
+.upload_btn{
+    background-color:#ffffff;
+    color:gray;
+    border:none;
+    padding:4px;
+    border-radius:0px;
+    cursor:pointer;
+    border:solid gray 1px;
+    transition:background-color 0.2s ease;
+}
+    
+.upload_btn:hover{
+    background-color:#205a91;
+    color:white;
+}
+
+.nextArrow {
+    background-color: #3076b8;
+    color: white;
+}
+
+.roundArrow {
+    border-radius: 50%;
+    text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.nextArror:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+
+
+.vol_btn{
+    background-color:#ffffff;
+    color:gray;
+    border:none;
+    padding:4px;
+    border-radius:6px;
+    cursor:pointer;
+    border:solid gray 1px;
+    transition:background-color 0.2s ease;
+    width:600px;
+    height:100px;
+    font-size: 30px;
+}
+    
+.vol_btn:hover{
+    background-color:#205a91;
+    color:white;
+}
+
+
+
+.centered{
+    margin:200px 200px 150px 50px;
+}
+
+
+
+
+
+
+@media screen and (max-width:850px){
+.left_side{
+position:relative;
+display:none;
+margin:0;
+padding-bottom:10px;
+width:100%;
+left:0;
+height:auto;
+min-height:0;
+max-height:none;
+}
+
+.right_side{
+position:relative;
+display:block;
+margin:0;
+width:90vw;
+padding:0 5vw;
+left:0;
+}
+
+.head_title{
+position:relative;
+height:auto;
+min-height:0;
+padding-bottom:8px;
+width:100%;
+margin: 0;
+display:block;
+}
+
+.head_title_text{
+font-size:1.5em;
+position:relative;
+display:inline-block;
+width:80%;
+margin:0 10px;
+}
+
+.burger{
+display:inline-block;
+margin:10px;
+width:30px;
+height:30px;
+position:absolute;
+
+background-size: 30px 30px;
+transition:background 0.2s ease;
+}
+
+.etf_logo{
+height:80px;
+margin-left:20px;
+margin-top:10px;
+cursor:pointer;
+}
+
+.slide_show{
+margin:0;
+padding:0;
+width:90vw;
+height:60vw;
+}
+
+form{
+padding:0 20px 0 20px;
+}
+
+.reg_zap{
+border-right:none;
+}
+
+ul.side_bar{
+margin:0 5%;
+}
+
+.left_side hr{
+width:90%;
+}
+
+ul.side_bar li:hover ul.sub_list{
+left:30%;
+width:50%;
+}
+
+
+}

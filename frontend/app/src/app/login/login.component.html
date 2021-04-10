@@ -1,0 +1,46 @@
+<div class="" style="background-image: url('assets/unnamed.jpeg');">
+    <div class="info">
+        <div class="login">
+            <h1>Prijava</h1>
+            <form name="prijava">
+                <table>
+                    <tr>
+                        <td>
+                            Username: 
+                        </td>
+                        <td>
+                            <input class="oble_ivice" type="text" required="true" name = "username" [(ngModel)]='username'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Password:
+                        </td>
+                        <td>
+                            <input class = "oble_ivice" type="password" required="true" name="password" [(ngModel)]='password'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <button class = "submit_btn" (click)='login()'>Uloguj se</button>
+                        </td>
+                        <td style="text-align:right">
+                            <a style="font-size:0.8em;" (click)='preusmeri("../register")'>Kreiraj novi nalog</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        
+        <span *ngIf='greskaPriLogovanju' style="color:red">
+            Greska pri logovanju       </span>
+        <br>
+        <hr>
+        
+       <!-- <h1>{{ 'informacije.okatedri' | translate }}</h1>
+        
+        <p>{{ 'informacije.adresa' | translate }}</p>
+        
+        <div class="slide_show" id="slide_show"></div>-->
+    </div>
+  </div>
