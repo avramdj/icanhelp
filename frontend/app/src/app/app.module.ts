@@ -8,6 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MenuComponent } from './menu/menu.component';
+import { VolontirajComponent } from './volontiraj/volontiraj.component';
+import { ZahtevajVolontiranjeComponent } from './zahtevaj-volontiranje/zahtevaj-volontiranje.component';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppComponent,
     UserDashboardComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MenuComponent,
+    VolontirajComponent,
+    ZahtevajVolontiranjeComponent
   ],
   imports: [
     BrowserModule,
