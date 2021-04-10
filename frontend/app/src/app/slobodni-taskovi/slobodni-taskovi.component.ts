@@ -16,6 +16,7 @@ export class SlobodniTaskoviComponent implements OnInit {
 
     this.userService.getFreeTasks().subscribe((data:Task[])=>{
       this.taskovi=data;
+      console.log(data);
       //svi taskovi izlistani. Treba da se filtriraju samo moji taskovi.
   });
   }
