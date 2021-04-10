@@ -32,13 +32,11 @@ app.use(express.json())
 app.use('/api/user', userApi);
 app.use('/api/task', taskApi);
 
-
-
-app.use('/api/', function(req, res, next) {
-    return res.status(200).json({
-        message: "api/user for user info"
-    });
-});
+// app.use('/api', function(req, res, next) {
+//     return res.status(200).json({
+//         message: "api/user for user info"
+//     });
+// });
 
 app.use('/api', function (error, req, res, next) {
     const statusCode = error.status || 500;

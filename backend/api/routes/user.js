@@ -25,4 +25,22 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
+router.post('/register', async (req, res, next) => {
+    let form = req.body;
+    try {
+        const newUser = new User({
+            _id: mongoose.Types.ObjectId(),
+            name: form.name,
+            last_name: form.last_name,
+            jmbg: form.jmbg,
+            br_licne_karte: form.br_licne_karte,
+            phone_number: form.phone_number
+        })
+        newUser.save();
+        return res.status(201).json({"message": "success"}); 
+    } catch (error){
+        next(error)
+    }
+})
+
 module.exports = router;

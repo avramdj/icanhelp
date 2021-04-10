@@ -26,10 +26,10 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 */
-
+/* 
 router.post('/listTasks', async (req, res, next) {
     
-})
+}) */
 
 router.post('/new', async (req, res, next) => {
     let { id: jmbg } = req.params;
