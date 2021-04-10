@@ -27,19 +27,32 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/register', async (req, res, next) => {
     let form = req.body;
-    try {
         const newUser = new User({
             _id: mongoose.Types.ObjectId(),
             name: form.name,
             last_name: form.last_name,
-            jmbg: form.jmbg,
             br_licne_karte: form.br_licne_karte,
+            username: form.username,
+            password: form.password,
+            jmbg: form.jmbg,
             phone_number: form.phone_number
         })
-        newUser.save();
+        const saved = newUser.save(function(error){
+            if(error) {
+                return res.status(201).json({"message": "failure"}); 
+            }
+        });
         return res.status(201).json({"message": "success"}); 
-    } catch (error){
-        next(error)
+
+})
+
+router.post('/login', async (req, res, next) => {
+    let form = req.body;
+    const found = User.findOne({"username": form.username, "password": form.password});
+    if(found == undefined){
+        return res.status(200).json({"message": "success", "user": found}); 
+    } else {
+        return res.status(404).json({"message": "failure"}); 
     }
 })
 
