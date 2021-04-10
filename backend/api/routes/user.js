@@ -28,7 +28,7 @@ router.get('/mytask/:id', async (req, res, next) => {
     if(task.length == 0) {
         return res.status(404).json({"ok": true, "contains": false, "message": "nema taskova"})
     }
-    return res.status(200).json({"ok": true, "task": task});
+    return res.status(200).json({"ok": true, "contains": true, "task": task});
 })
 
 router.get('/all', async (req, res, next) => {
