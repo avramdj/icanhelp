@@ -13,6 +13,18 @@ const schema = mongoose.Schema({
     jmbg: {
         type: String,
         required: true
+    },
+    id_photo_route: {
+        type: String,
+        required: false
+    },
+    ver_photo_route: {
+        type: String,
+        required: false
+    },
+    phone_number: {
+        type: String,
+        required: false
     }
 });
 

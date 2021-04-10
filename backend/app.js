@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const morgan = require('morgan')
 const config = require('./config');
 const userApi = require('./api/routes/user');
+const taskApi = require('./api/routes/task');
 
 require('dotenv').config()
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.json())
 // });
 
 app.use('/api/user', userApi);
+app.use('/api/task', taskApi);
 
 
 
