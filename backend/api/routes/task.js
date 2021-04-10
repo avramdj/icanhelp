@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { Task } = require('../../models/task');
+const { Task, DeletedTask } = require('../../models/task');
 const { User } = require('../../models/user');
 const config = require('../../config')
 const router = express.Router();
@@ -182,7 +182,14 @@ router.post('/delete/:id',async (req,res,next) => {
                         throw new Error("Task not found!");
                 }
 
+                let swap = new DeletedTask(taskFound.toJSON());
+
                 await taskFound.remove();
+
+                // Move to deleted tasks
+                await swap.save().catch((error) => {
+                        throw error;
+                });
 
                 res.status(200).json({
                         message: "Task deleted",

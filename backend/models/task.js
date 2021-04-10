@@ -27,5 +27,7 @@ const schema = mongoose.Schema({
 });
 
 const Task = mongoose.model('Task', schema);
+const DeletedTask = mongoose.model('DeletedTask', schema);
 
 module.exports.Task = Task
+module.exports.DeletedTask = DeletedTask
