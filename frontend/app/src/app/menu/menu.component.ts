@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivationEnd, Router } from '@angular/router';
 
+function menu() {
+  document.getElementById("burger").classList.toggle("change");
+  document.getElementById("linksHolder").classList.toggle("changeHolder"); 
+}
+
+
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -8,10 +15,23 @@ import { ActivatedRoute, ActivationEnd, Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+  
+
   constructor(private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
   }
+
+  menuc(){
+    menu();
+  }
+  menut(){
+    setTimeout(this.menuc,300);
+  }
+
+
+
+
 
   preusmeri(gde:string){
     this.router.navigate([gde], {relativeTo: this.route});

@@ -1,12 +1,4 @@
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<script>
-	function menu() {
-		burger.classList.toggle("change");
-		linksHolder.classList.toggle("changeHolder"); 
-	}
-	</script>
-</head>
+
 
 <body class="menubody" style="text-align:center;">
 	
@@ -24,12 +16,12 @@
 	<div class="header">
 		<span class="gradient"></span>
 		<span class="linksHolder" id="linksHolder">
-		<span class="newline"><a class="headerLinks" onclick="setTimeout('menu()',300);" href="#" onclick="window.scrollTop();"><span></span>Volontiranje</a></span>
-		<span class="newline"><a class="headerLinks" onclick="setTimeout('menu()',300);" href="#aboutme"><span></span>O nama</a></span>
-		<span class="newline"><a class="headerLinks" onclick="setTimeout('menu()',300);" href="#projects"><span></span>Pomoć</a></span>
-		<span class="newline"><a class="headerLinks" onclick="setTimeout('menu()',300);" href="#resume"><span></span>Kontakt</a></span>
+		<span class="newline"><a class="headerLinks" (click)='menut()' ><span></span>Volontiranje</a></span>
+		<span class="newline"><a class="headerLinks" (click)='menut()' ><span></span>O nama</a></span>
+		<span class="newline"><a class="headerLinks" (click)='menut()' ><span></span>Pomoć</a></span>
+		<span class="newline"><a class="headerLinks" (click)='menut()' ><span></span>Kontakt</a></span>
 		</span>
-		<div class="burger" onclick="menu()" id="burger">
+		<div class="burger" (click)='menuc()' id="burger">
 			<div class="bar1"></div>
 			<div class="bar2"></div>
 			<div class="bar3"></div>
