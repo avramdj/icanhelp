@@ -1,13 +1,14 @@
+
 <div class="login">
-    <h1 style="text-align: center;">Prijava </h1>
+	<img src="/assets/back.png" class="back">
+    <h1 style="text-align: center;color:#444444;">Prijava </h1>
             <form name="prijava">
-        <input type="text" name="u" placeholder="Username" required="required" [(ngModel)]="username"/>
-          <input type="password" name="p" placeholder="Password" required="required" [(ngModel)]="password"/>
-          <tr>
-          <button type="submit" class="btn btn-primary btn-block btn-large" (click)='login()'>Uloguj se   </button>
-          <td style="text-align:right">
-            <a style="font-size:0.8em; margin-left: 10px;" (click)='preusmeri("../register")'>Kreiraj novi nalog</a>
-        </td>
-        </tr>
+		
+		<img src="/assets/profile_pic.png" class="profile_pic">
+		<img src="/assets/login.png" class="loginpic">
+        <input type="text" name="u" placeholder="Username" required="required" [(ngModel)]='username'>
+          <input type="password" name="p" placeholder="Password" required="required" [(ngModel)]='password'>
+          <button type="submit" class="ulogujse" (click)='login()'>Uloguj se   </button>
+          <a style="font-size:0.8em; margin-left: 10px;" (click)='preusmeri("../register")'>Kreiraj novi nalog</a>
     </form>
 </div>

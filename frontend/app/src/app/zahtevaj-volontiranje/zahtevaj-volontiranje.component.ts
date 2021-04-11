@@ -18,7 +18,6 @@ export class ZahtevajVolontiranjeComponent implements OnInit {
   longitude:String;
 
   ngOnInit(): void {
-
   }
   napraviTask(){
     this.userService.addTask(this.jmbg, this.task_string, this.latitude, this.longitude).subscribe(ob=>{

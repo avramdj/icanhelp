@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ActivationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
+  preusmeri(gde:string){
+    this.router.navigate([gde], {relativeTo: this.route});
+  }
+  preusmerivol(){
+    if(localStorage.getItem('user')){
+      this.preusmeri('../volontiraj');
+    }
+    else {
+      this.preusmeri('../login');
+    }
+  }
+  preusmerizahtev(){
+    if(localStorage.getItem('user')){
+      this.preusmeri('../zahtevaj-volontiranje');
+    }
+    else {
+      this.preusmeri('../login');
+    }
+  }
 }
