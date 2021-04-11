@@ -51,8 +51,8 @@ export class UserServiceService {
 
   mojiTaskovi(id){
     ///api/task/listNearestTasks/:lat/:long
-
-    return this.http.get(`${this.uri}/api/user/mytask/${id}`)['tasks'];
+    let fetched = this.http.get(`${this.uri}/api/user/mytask/${id}`);
+    return fetched
   }
 
   deleteTask(id){

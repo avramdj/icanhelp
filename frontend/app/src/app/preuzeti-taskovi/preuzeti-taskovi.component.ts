@@ -13,30 +13,22 @@ export class PreuzetiTaskoviComponent implements OnInit {
   constructor(private userService:UserServiceService) { }
 
   taskovi:Task[]=[];
-  mojiTaskovi:Task[]=[];
   user:User;
   ngOnInit(): void {
     if(localStorage.getItem('user')){
       this.user = JSON.parse(localStorage.getItem('user'))['user'];
     }
     console.log(this.user);
-    this.userService.mojiTaskovi(this.user.jmbg).subscribe((data:Task[])=>{
-      this.taskovi=data;
-      this.taskovi.forEach(el=>{
-        if(el.korisnik.jmbg==this.user.jmbg){
-          this.mojiTaskovi.push(el);
-        }
-      })
-      //console.log(data);
-      
+    this.userService.mojiTaskovi(this.user.jmbg).subscribe((data)=>{
+    this.taskovi = data['tasks'];
   });
   }
 
   delete(id:String){
     this.userService.unassign(id).subscribe((data:Task[])=>{
-      this.mojiTaskovi.forEach(elem=>{
+      this.taskovi.forEach(elem=>{
         if(elem.korisnik.jmbg==id){
-          this.mojiTaskovi.splice(this.mojiTaskovi.indexOf(elem));
+          this.taskovi.splice(this.taskovi.indexOf(elem));
         }
       })
     })
