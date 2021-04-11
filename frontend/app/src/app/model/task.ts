@@ -7,6 +7,7 @@ export class Task{
     longitude:String;
     task_creation_date:Date;
     creation_date_string:String;
+    udaljenost: Number;
 }
 
 /* 

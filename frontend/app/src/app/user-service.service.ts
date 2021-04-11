@@ -84,8 +84,8 @@ export class UserServiceService {
     return this.http.get(`${this.uri}/api/task/listTasks`);
 
   }
-  getFreeTasks(){
-    return this.http.get(`${this.uri}/api/task/listFreeTasks`);
+  getFreeTasks(lat, long){
+    return this.http.get(`${this.uri}/api/task/listNearestTasks/${lat}/${long}`);
   }
 
   /*
