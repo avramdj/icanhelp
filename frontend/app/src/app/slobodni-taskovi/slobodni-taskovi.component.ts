@@ -19,12 +19,11 @@ export class SlobodniTaskoviComponent implements OnInit {
   taskovi:Task[]=[];
   ngOnInit(): void {
 
-    this.userService.getTasks().subscribe((data:Task[])=>{
+    this.userService.getFreeTasks().subscribe((data:Task[])=>{
 
-     /* for(let i=0;i<data.length;++i) {
-              data[i].task_creation_date = new Date(data[i].task_creation_date).toUTCString();
-      }*/
-
+      for(let i=0;i<data.length;++i) {
+              data[i].creation_date_string = data[i].task_creation_date.toString();
+      }
       this.taskovi=data;
 
 
