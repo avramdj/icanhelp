@@ -20,7 +20,14 @@ export class SlobodniTaskoviComponent implements OnInit {
   ngOnInit(): void {
 
     this.userService.getTasks().subscribe((data:Task[])=>{
+
+      for(let i=0;i<data.length;++i) {
+              data[i].task_creation_date = new Date(data[i].task_creation_date).toUTCString();
+      }
+
       this.taskovi=data;
+
+
       console.log(data);
       //svi taskovi izlistani. Treba da se filtriraju samo moji taskovi.
   });
