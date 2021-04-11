@@ -20,9 +20,9 @@ const routes: Routes = [
     {path:'slobodni-taskovi',component:SlobodniTaskoviComponent},
     {path:'preuzeti-taskovi',component:PreuzetiTaskoviComponent}
   ]},
-  {path:'oKorisniku',component:OKorisnikuComponent},
+  {path:'o-korisniku',component:OKorisnikuComponent},
   {path:'zahtevaj-volontiranje',component:ZahtevajVolontiranjeComponent},
-  {path:'moji-taskovi',component:MojiTaskoviComponent}
+  {path:'moji-taskovi',component:MojiTaskoviComponent},
 ];
 
 

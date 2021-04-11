@@ -1,1 +1,16 @@
-<p>zahtevaj-volontiranje works!</p>
+
+<div>
+    <div class="login">
+<img src="/assets/back.png" class="back">
+<h1 style="text-align: center;color:#444444;">Postavi zahtev </h1>
+        <form name="reg_zap" class="reg_zap" >
+        
+    <img src="/assets/login.png" class="loginpic">
+                <input type="text" name="u" placeholder="Opis taska" required="required"  [(ngModel)]="task_string"/>
+                <input type="text" name="u" placeholder="Lokacija" required="required"  [(ngModel)]="task_string"/>
+                
+                        <button class="ulogujse" (click)="register()">Postavi zahtev</button>
+                       
+        </form>
+    </div>   
+</div>

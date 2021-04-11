@@ -1,1 +1,21 @@
 
+
+<div>
+    <div class="login">
+<img src="/assets/back.png" class="back">
+<h1 style="text-align: center;color:#444444;">Licni podaci </h1>
+        <form name="reg_zap" class="reg_zap" >
+        
+    <img src="/assets/profile_pic.png" class="profile_pic">
+    <img src="/assets/login.png" class="loginpic">
+                <input type="text" name="u" placeholder="Username" required="required"  [(ngModel)]="user.username"/>
+                <input type="password" name="p" placeholder="Password" required="required" [(ngModel)]="user.password"/>
+                <input type="text" name="n" placeholder="Name" required="required" [(ngModel)]="user.name"/>
+                <input type="text" name="s" placeholder="Surname" required="required" [(ngModel)]="user.last_name"/>
+                <input type="text" name="j" placeholder="JMBG" required="required" [(ngModel)]="user.jmbg"/>
+                <input type="text" name="p" placeholder="ID card number" required="required" [(ngModel)]="user.br_licne_karte"/>
+                <input type="text" name="k" placeholder="Phone" required="required" [(ngModel)]="user.phone_number"/>
+                        <button class="ulogujse">Sacuvaj izmene</button>
+        </form>
+    </div>   
+</div>
