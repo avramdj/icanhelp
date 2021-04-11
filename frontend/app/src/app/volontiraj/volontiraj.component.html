@@ -1,9 +1,9 @@
 <body class="menubody">
 	<div class="username">{{user.name}} {{user.last_name}}</div>
 	<div class="task_head">
-		<div id="prviid"  class="tasks selected" (click)='preusmeri("slobodni-taskovi"); funkc(1);'>Tasks</div>
-		<div id="drugiid"  class="tasks" (click)='preusmeri("moji-taskovi"); funkc(2);'>To do</div>
-		<div id="treciid" class="tasks" (click)='preusmeri("preuzeti-taskovi"); funkc(3);'>Made tasks</div>
+		<div id="prviid"  class="tasks selected" (click)='preusmeri("slobodni-taskovi"); funkc(1);'>Zahtevi</div>
+		<div id="drugiid"  class="tasks" (click)='preusmeri("moji-taskovi"); funkc(2);'>Prihvaceni zahtevi</div>
+		<div id="treciid" class="tasks" (click)='preusmeri("preuzeti-taskovi"); funkc(3);'>Moji zahtevi</div>
 	</div>
     <router-outlet></router-outlet>
 </body>
