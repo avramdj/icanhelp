@@ -18,8 +18,11 @@ export class MenuComponent implements OnInit {
   
 
   constructor(private router:Router,private route:ActivatedRoute) { }
-
+  isLogged:Boolean;
   ngOnInit(): void {
+    if(localStorage.getItem('user')){
+      this.isLogged=true;
+    }
   }
 
   menuc(){

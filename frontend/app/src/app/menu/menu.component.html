@@ -2,15 +2,15 @@
 
 <body class="menubody" style="text-align:center;">
 	
-	<div class="sect" style="margin-top:70px;">
-		<img src="help.png" class="help">
+	<div class="sect" style="margin-top:70px;" (click)='preusmerivol()'>
+		<img src="assets/help.png" class="help">
 		<br>
-		<a class="vol_btn" (click)='preusmerivol()'><span></span>Volontiraj</a>
+		<a class="vol_btn" ><span></span>Volontiraj</a>
 	</div>
-	<div class="sect">
-		<img src="get.png" class="help">
+	<div class="sect" (click)='preusmerizahtev()'>
+		<img src="assets/get.png" class="help">
 		<br>
-		<a class="vol_btn" (click)='preusmerizahtev()'><span></span>Zahtevaj volontiranje</a>
+		<a class="vol_btn" ><span></span>Zahtevaj volontiranje</a>
 	</div>
 	
 	<div class="header">
@@ -20,6 +20,8 @@
 		<span class="newline"><a class="headerLinks" (click)='menut()' ><span></span>O nama</a></span>
 		<span class="newline"><a class="headerLinks" (click)='menut()' ><span></span>Pomoć</a></span>
 		<span class="newline"><a class="headerLinks" (click)='menut()' ><span></span>Kontakt</a></span>
+		<span *ngIf='isLogged' class="newline"><a class="headerLinks" (click)='menut()' ><span></span>Lični podaci</a></span>
+
 		</span>
 		<div class="burger" (click)='menuc()' id="burger">
 			<div class="bar1"></div>

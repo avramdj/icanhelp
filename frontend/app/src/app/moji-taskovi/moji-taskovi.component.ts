@@ -16,12 +16,13 @@ export class MojiTaskoviComponent implements OnInit {
     }
   }
 
+  isLogged:Boolean;
   mojiTaskovi:Task[]=[];
   user:User;
   ngOnInit(): void {
     if(localStorage.getItem('user')){
       this.user = JSON.parse(localStorage.getItem('user'))['user'];
-    
+      this.isLogged=true;
     }
     console.log(this.user);
     this.userService.mojiTaskovi(this.user.jmbg).subscribe((data:Task[])=>{

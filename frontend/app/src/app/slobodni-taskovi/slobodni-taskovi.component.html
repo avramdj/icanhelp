@@ -1,4 +1,4 @@
-<div>
+<!--<div>
     <div>
         <div class="zaposleni_osoba border_dashed"  *ngFor = 'let task of taskovi'>
             <div>
@@ -14,5 +14,18 @@
             </div>
         </div>
         <router-outlet></router-outlet>
+    </div>
+</div>-->
+
+<div class="task" *ngFor = 'let task of taskovi' >
+    <div class="taskDesc">
+        <div class="taskName">Naziv Taska</div>
+        {{task.task_string}}
+        <br>
+        <div class="location">{{task.request_user_id.name}} {{task.request_user_id.last_name}} - {{task.longitude}} {{task.latitude}}</div>
+        <div class="datum">datum</div>
+    </div>
+    <div class="taskCheck">
+        <img src="assets/add.png" class="checkIcon">
     </div>
 </div>

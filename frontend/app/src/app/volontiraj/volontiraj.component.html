@@ -1,8 +1,9 @@
-<div class="right_side">
-    <div>
-        <div class="page_title">Taskovi</div>
-        <hr>
-            <a (click) = 'preusmeri("slobodni-taskovi")'>Dostupni taskovi</a> | <a (click) = 'preusmeri("moji-taskovi")'>Moji taskovi</a> 
-        <router-outlet></router-outlet>
-    </div>
-</div>
+<body class="menubody">
+	<div class="username">{{user.name}} {{user.last_name}}</div>
+	<div class="task_head">
+		<div id="prviid"  class="tasks selected" (click)='preusmeri("slobodni-taskovi"); funkc(1);'>Tasks</div>
+		<div id="drugiid"  class="tasks" (click)='preusmeri("moji-taskovi"); funkc(2);'>To do</div>
+		<div id="treciid" class="tasks" (click)='preusmeri("preuzeti-taskovi"); funkc(3);'>Made tasks</div>
+	</div>
+    <router-outlet></router-outlet>
+</body>

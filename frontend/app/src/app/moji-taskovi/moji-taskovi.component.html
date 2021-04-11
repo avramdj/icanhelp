@@ -1,45 +1,45 @@
-<head>
-	<link rel="stylesheet" href="styles.css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
 
-<body class="menubody">
-	<div class="username">Ana Nestorovic</div>
-	<div class="task_head">
-		<div class="tasks selected">Tasks</div>
-		<div class="tasks">To do</div>
-		<div class="tasks">Made tasks</div>
-	</div>
 	<!--
 		id.classList.add("selected");
 		id.classList.remove("selected");
 	-->
-	<div class="task">
+	<!--<div class="task">
 		<div class="taskDesc">
-			<div class="taskName">{{Naziv taska}}</div>
-			{{opis taska}}
+			<div class="taskName">Naziv taska</div>
+			opis taska
 			<br>
-			<div class="location">{{ime i prezime}} - {{lokacija}}</div>
-			<div class="datum">{{datum}}</div>
+			<div class="location">ime i prezime - lokacija</div>
+			<div class="datum">datum</div>
 		</div>
 		<div class="taskCheck">
-			<img src="add.png" class="checkIcon">
+			<img src="assets/add.png" class="checkIcon">
 		</div>
 	</div>
 	
 	<div class="task">
 		<div class="taskDesc">
-			<div class="taskName">{{Naziv taska}}</div>
-			{{opis taska}}
+			<div class="taskName">Naziv taska</div>
+			opis taska
 			<br>
-			<div class="location">{{ime i prezime}} - {{lokacija}}</div>
-			<div class="datum">{{datum}}</div>
+			<div class="location">ime i prezime - lokacija</div>
+			<div class="datum">datum</div>
 		</div>
 		<div class="taskCheck">
-			<img src="delete.png" class="checkIcon">
-			<img src="check.png" class="checkIcon">
+			<img src="assets/delete.png" class="checkIcon">
+			<img src="assets/check.png" class="checkIcon">
+		</div>
+	</div>-->
+
+    <div class="task" *ngFor = 'let task of mojiTaskovi'>
+		<div class="taskDesc">
+			<div class="taskName">Naziv taska</div>
+			{{task.task_string}}
+			<br>
+            <div class="location">{{task.request_user_id.name}} {{task.request_user_id.last_name}} - {{task.longitude}} {{task.latitude}}</div>
+            <div class="datum">datum</div>
+		</div>
+		<div class="taskCheck">
+			<img src="assets/delete.png" class="checkIcon">
 		</div>
 	</div>
-
-</body>  
-	<router-outlet></router-outlet>
+ 
