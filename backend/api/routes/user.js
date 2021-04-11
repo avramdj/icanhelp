@@ -28,7 +28,7 @@ router.get('/mytask/:id', async (req, res, next) => {
         }
         let user_id = user._id;
         let tasks  = await Task.find({ "volunteer_id": user_id})
-        .populate('request_user_id').exec();;
+            .populate('request_user_id').exec();;
         return res.status(200).json({"tasks": tasks});
     } catch(error){
         next(error);
@@ -43,7 +43,8 @@ router.get('/myrequests/:id', async (req, res, next) => {
             return res.status(404).json({"ok": false, "contains": false, "message": "greska u dohvatanju korisnika"})
         }
         let user_id = user._id;
-        let tasks  = await Task.find({ "request_user_id": user_id});
+        let tasks  = await Task.find({ "request_user_id": user_id})
+            .populate('volunteer_id').exec();;;
         return res.status(200).json({"tasks": tasks});
     } catch(error){
         next(error);
