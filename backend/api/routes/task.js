@@ -117,13 +117,7 @@ router.get('/unassign/:id', async (req,res,next) => {
                         throw new Error("User not found!");
                 }
 
-                const foundTask = await Task.findOne({"request_user_id" : foundUser._id}).exec();
-
-                if(foundTask == null) {
-                        throw new Error("Task not found!");
-                }
-
-                await foundTask.updateOne({ "volunteer_id" : null }).exec();
+                await Task.updateOne({"volunteer_id" : foundUser._id}, {$unset : { "volunteer_id" : ""}}).exec();
         }
         catch (error) {
                 next(error);
