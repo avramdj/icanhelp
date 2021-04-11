@@ -28,7 +28,6 @@ export class ZahtevajVolontiranjeComponent implements OnInit {
   napraviTask(){
     
     this.userService.addTask(this.jmbg, this.task_string, this.latitude, this.longitude).subscribe(ob=>{
-      alert(1);
       console.log("Dodat task.");
     })
   }
