@@ -37,6 +37,24 @@ router.get('/mytask/:id', async (req, res, next) => {
     }
 })
 
+router.get('/myrequest/:id', async (req, res, next) => {
+    try{
+        let { id: jmbg } = req.params;
+        let user = await User.findOne({"jmbg": jmbg});
+        if(user == undefined) {
+            return res.status(404).json({"ok": false, "contains": false, "message": "greska u dohvatanju korisnika"})
+        }
+        let user_id = user._id;
+        let tasks  = await Task.find({ "request_id": user_id});
+        if(tasks.length == 0) {
+            return res.status(404).json({"ok": true, "contains": false, "message": "nema taskova"})
+        }
+        return res.status(200).json({"ok": true, "contains": true, "tasks": tasks});
+    } catch(error){
+        next(error);
+    }
+})
+
 router.get('/all', async (req, res, next) => {
     let users = await User.find({});
     return res.status(200).json({"ok": true, "users": users});
