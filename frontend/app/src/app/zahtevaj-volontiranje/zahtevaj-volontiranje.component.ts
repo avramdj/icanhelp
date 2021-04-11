@@ -21,12 +21,12 @@ export class ZahtevajVolontiranjeComponent implements OnInit {
   ngOnInit(): void {
     this.jmbg="jmbg";
     if(localStorage.getItem('user')){
-      this.user = JSON.parse(localStorage.getItem('user'));
+      this.user = JSON.parse(localStorage.getItem('user'))['user'];
       this.jmbg=this.user.jmbg;
     }
   }
   napraviTask(){
-    
+ 
     this.userService.addTask(this.jmbg, this.task_string, this.latitude, this.longitude).subscribe(ob=>{
       console.log("Dodat task.");
     })
