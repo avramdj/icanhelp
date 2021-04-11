@@ -23,7 +23,7 @@
         <div class="taskName">{{task.task_string}}</div>
         <br>
         <div class="location">{{task.request_user_id.name}} {{task.request_user_id.last_name}} - {{task.longitude}} {{task.latitude}}</div>
-        <div class="datum">datum</div>
+        <div class="datum">{{task.task_creation_date}}</div>
     </div>
     <div class="taskCheck">
         <img src="assets/add.png" class="checkIcon">
