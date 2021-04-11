@@ -23,7 +23,7 @@ export class PreuzetiTaskoviComponent implements OnInit {
     this.userService.getTasks().subscribe((data:Task[])=>{
       this.taskovi=data;
       this.taskovi.forEach(el=>{
-        if(el.request_user_id.jmbg==this.user.jmbg){
+        if(el.korisnik.jmbg==this.user.jmbg){
           this.mojiTaskovi.push(el);
         }
       })

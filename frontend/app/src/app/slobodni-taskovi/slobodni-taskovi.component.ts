@@ -22,7 +22,7 @@ export class SlobodniTaskoviComponent implements OnInit {
     this.userService.getTasks().subscribe((data:Task[])=>{
 
       for(let i=0;i<data.length;++i) {
-              data[i].task_creation_date = new Date(data[i].task_creation_date).toUTCString();
+              data[i].creation_date_string = data[i].task_creation_date.toLocaleString();
       }
 
       this.taskovi=data;
