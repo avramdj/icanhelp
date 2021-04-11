@@ -79,7 +79,6 @@ export class UserServiceService {
 
   /*
     /api/task/new requires { “jmbg” : String, “task_string” : String, “latitude” : Number/String, “longitude” : Number/String }
-
   */ 
 }
 
