@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { SlobodniTaskoviComponent } from './slobodni-taskovi/slobodni-taskovi.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { VolontirajComponent } from './volontiraj/volontiraj.component';
+import { ZahtevajVolontiranjeComponent } from './zahtevaj-volontiranje/zahtevaj-volontiranje.component';
 
 const routes: Routes = [
   {path:'',component:MenuComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path:'slobodni-taskovi',component:SlobodniTaskoviComponent}
   ]},
   {path:'oKorisniku',component:OKorisnikuComponent}
+,  {path:'zahtevaj-volontiranje',component:ZahtevajVolontiranjeComponent}
 ];
 
 

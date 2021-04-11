@@ -32,8 +32,6 @@ export class UserServiceService {
       br_licne_karte:br_licne_karte,
       phone_number:phone_number
     }
-    console.log("Podaci su ");
-    console.log(data);
     return this.http.post(`${this.uri}/api/user/register`,data);
   }
 
