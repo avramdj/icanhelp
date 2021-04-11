@@ -123,9 +123,10 @@ router.get('/unassign/:id', async (req,res,next) => {
                         throw new Error("Task not found!");
                 }
 
-                await foundTask.update({ "volunteer_id" : null }).exec();
+                await foundTask.updateOne({ "volunteer_id" : null }).exec();
         }
         catch (error) {
+                next(error);
         }
 
 });
