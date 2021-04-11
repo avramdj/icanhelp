@@ -24,14 +24,17 @@ export class PreuzetiTaskoviComponent implements OnInit {
   });
   }
 
-  delete(id:String){
+  ukloni(task:Task){
+    this.taskovi.splice(this.taskovi.indexOf(task), 1);
+    console.log("task:");
+    console.log(task);
+  }
+
+  delete(id:String,task:Task){
     this.userService.unassign(id).subscribe((data:Task[])=>{
-      this.taskovi.forEach(elem=>{
-        if(elem.korisnik.jmbg==id){
-          this.taskovi.splice(this.taskovi.indexOf(elem));
-        }
-      })
+      
     })
+    this.ukloni(task);
   }
 
 }

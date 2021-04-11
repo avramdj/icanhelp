@@ -35,8 +35,9 @@ export class SlobodniTaskoviComponent implements OnInit {
   ukloni(task:Task){
     this.taskovi.splice(this.taskovi.indexOf(task), 1);
   }
-  preuzmi(id1:string,id2:string){
+  preuzmi(id1:string,id2:string,task:Task){
       this.userService.dodajVolontera(id1,id2).subscribe((data:Task[])=>{//dodaj u mojeTaskove u bazi
+        this.ukloni(task);
     })
   }
 
