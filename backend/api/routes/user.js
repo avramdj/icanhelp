@@ -28,10 +28,7 @@ router.get('/mytask/:id', async (req, res, next) => {
         }
         let user_id = user._id;
         let tasks  = await Task.find({ "volunteer_id": user_id});
-        if(tasks.length == 0) {
-            return res.status(404).json({"ok": true, "contains": false, "message": "nema taskova"})
-        }
-        return res.status(200).json({"ok": true, "contains": true, "tasks": tasks});
+        return res.status(200).json({"tasks": tasks});
     } catch(error){
         next(error);
     }
