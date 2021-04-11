@@ -34,8 +34,9 @@
 		<div class="taskDesc">
 			<div class="taskName">{{task.task_string}}</div>
 			<br>
-            <div class="location">{{task.request_user_id.name}} {{task.request_user_id.last_name}} - {{task.longitude}} {{task.latitude}}</div>
-            <div class="datum">datum</div>
+            <div class="location">{{task.request_user_id.name}} {{task.request_user_id.last_name}}</div>
+            <div class="datum">Volonter: {{task.volunteer_id.name}} {{task.request_user_id.last_name}}</div>
+            <div class="datum">Telefon: {{task.volunteer_id.phone_number}}</div>
 		</div>
 		<div class="taskCheck">
 			<img src="assets/delete.png" class="checkIcon" (click)='delete(user.jmbg)'>
