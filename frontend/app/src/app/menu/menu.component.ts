@@ -6,8 +6,6 @@ function menu() {
   document.getElementById("linksHolder").classList.toggle("changeHolder"); 
 }
 
-
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -41,7 +39,7 @@ export class MenuComponent implements OnInit {
   }
   preusmerivol(){
     if(localStorage.getItem('user')){
-      this.preusmeri('../volontiraj');
+      this.preusmeri('../volontiraj/slobodni-taskovi');
     }
     else {
       this.preusmeri('../login');
