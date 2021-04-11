@@ -10,6 +10,7 @@ export class UserServiceService {
   constructor(private http:HttpClient) { }
 
   uri = 'http://nikolasutic.xyz:4040'
+  // uri = 'http://localhost:4040'
 
   login(username, password){
     const data = {
