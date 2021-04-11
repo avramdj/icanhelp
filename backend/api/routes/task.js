@@ -233,9 +233,9 @@ router.get('/delete/:id',async (req,res,next) => {
                 await taskFound.remove();
 
                 // Move to deleted tasks
-                await swap.save().catch((error) => {
-                        throw error;
-                });
+                // await swap.save().catch((error) => {
+                //         throw error;
+                // });
 
                 res.status(200).json({
                         message: "Task deleted",
@@ -244,6 +244,7 @@ router.get('/delete/:id',async (req,res,next) => {
                 });
         }
         catch(error) {
+                console.log(error)
                 next(error);
         }
 });

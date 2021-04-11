@@ -9,8 +9,8 @@ export class UserServiceService {
 
   constructor(private http:HttpClient) { }
 
-  uri = 'http://nikolasutic.xyz:4040'
-  // uri = 'http://localhost:4040'
+  // uri = 'http://nikolasutic.xyz:4040'
+  uri = 'http://localhost:4040'
 
   login(username, password){
     const data = {
@@ -53,6 +53,12 @@ export class UserServiceService {
   mojiTaskovi(id){
     ///api/task/listNearestTasks/:lat/:long
     let fetched = this.http.get(`${this.uri}/api/user/mytask/${id}`);
+    return fetched
+  }
+
+  mojiZahtevi(id){
+    ///api/task/listNearestTasks/:lat/:long
+    let fetched = this.http.get(`${this.uri}/api/user/myrequests/${id}`);
     return fetched
   }
 

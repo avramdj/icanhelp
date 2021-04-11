@@ -32,14 +32,13 @@
 
     <div class="task" *ngFor = 'let task of mojiTaskovi'>
 		<div class="taskDesc">
-			<div class="taskName">Naziv taska</div>
-			{{task.task_string}}
+			<div class="taskName">{{task.task_string}}</div>
 			<br>
             <div class="location">{{task.request_user_id.name}} {{task.request_user_id.last_name}} - {{task.longitude}} {{task.latitude}}</div>
             <div class="datum">datum</div>
 		</div>
 		<div class="taskCheck">
-			<img src="assets/delete.png" class="checkIcon" (click)='delete(task.request_user_id.jmbg)'>
+			<img src="assets/delete.png" class="checkIcon" (click)='delete(user.jmbg)'>
 		</div>
 	</div>
  

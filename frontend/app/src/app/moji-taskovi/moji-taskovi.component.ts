@@ -25,18 +25,14 @@ export class MojiTaskoviComponent implements OnInit {
       this.isLogged=true;
     }
     
-    this.userService.mojiTaskovi(this.user.jmbg).subscribe((data:Task[])=>{
-      this.mojiTaskovi=data;
+    this.userService.mojiZahtevi(this.user.jmbg).subscribe((data:Task[])=>{
+      this.mojiTaskovi=data['tasks'];
       console.log(this.mojiTaskovi);
   });
   }
   delete(id:String){
-    this.userService.unassign(id).subscribe((data:Task[])=>{
-      this.mojiTaskovi.forEach(elem=>{
-        if(elem.korisnik.jmbg==id){
-          this.mojiTaskovi.splice(this.mojiTaskovi.indexOf(elem));
-        }
-      })
+    this.userService.deleteTask(id).subscribe((data:Task[])=>{
+
     })
   }
  /*
