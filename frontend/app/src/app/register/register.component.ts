@@ -44,7 +44,6 @@ export class RegisterComponent implements OnInit {
             setTimeout(this.preusmeriNaLogin.bind(this),2000);
             //this.preusmeriNaLogin();
           }
-  
         })
     }
 

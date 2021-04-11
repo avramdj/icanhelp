@@ -44,21 +44,22 @@ export class UserServiceService {
   nearestTaskList(lat, long){
     ///api/task/listNearestTasks/:lat/:long
     return this.http.get(`${this.uri}/api/task/assign/${lat}/${long}`);
-
   }
 
   mojiTaskovi(id){
     ///api/task/listNearestTasks/:lat/:long
     return this.http.get(`${this.uri}/api/mytask/${id}`);
   }
+
   deleteTask(id){
     ///api/task/delete/:id
-    return this.http.get(`${this.uri}/api/task/assign/:${id}`);
+    return this.http.get(`${this.uri}/api/task/delete/${id}`);
   }
-  dodajVolontera(id1,id2) {
 
+  dodajVolontera(id1,id2) {
     return this.http.get(`${this.uri}/api/task/assign/${id1}/${id2}`);
   }
+
   addTask(jmbg,task_string,latitude,longitude){
     const data = {
       jmbg:jmbg,
@@ -66,9 +67,7 @@ export class UserServiceService {
       latitude:latitude,
       longitude:longitude
     }
-
     return this.http.post(`${this.uri}/api/user/register`,data);
-
   }
   getTasks(){
     return this.http.get(`${this.uri}/api/task/listTasks`);
