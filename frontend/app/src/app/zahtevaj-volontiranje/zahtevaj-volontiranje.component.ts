@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../model/user';
 import { UserServiceService } from '../user-service.service';
 
@@ -10,7 +10,7 @@ import { UserServiceService } from '../user-service.service';
 })
 export class ZahtevajVolontiranjeComponent implements OnInit {
 
-  constructor(private userService:UserServiceService,private router:Router) { }
+  constructor(private userService:UserServiceService,private router:Router,private route:ActivatedRoute) { }
 
 
   //api/task/new requires { “jmbg” : String, “task_string” : String, “latitude” : Number/String, “longitude” : Number/String }
