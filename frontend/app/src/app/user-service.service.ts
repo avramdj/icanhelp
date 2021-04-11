@@ -40,7 +40,7 @@ export class UserServiceService {
 
 
   unassign(id){
-    return this.http.get(`${this.uri}/api/unassign/${id}`);
+    return this.http.get(`${this.uri}/api/task/unassign/${id}`);
 
   }
 
