@@ -12,7 +12,7 @@ export class MojiTaskoviComponent implements OnInit {
 
   constructor(private userService:UserServiceService) { 
     if(localStorage.getItem('user')){
-      this.user = JSON.parse(localStorage.getItem('user'))
+      this.user = JSON.parse(localStorage.getItem('user'))['user'];
     }
   }
 
@@ -24,11 +24,10 @@ export class MojiTaskoviComponent implements OnInit {
       this.user = JSON.parse(localStorage.getItem('user'))['user'];
       this.isLogged=true;
     }
-    console.log(this.user);
+    
     this.userService.mojiTaskovi(this.user.jmbg).subscribe((data:Task[])=>{
       this.mojiTaskovi=data;
-      //console.log(data);
-      
+      console.log(this.mojiTaskovi);
   });
   }
   delete(id:String){
