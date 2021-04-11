@@ -39,6 +39,11 @@ export class UserServiceService {
   ///api/task/assign/:id1/:id2
 
 
+  unassign(id){
+    return this.http.get(`${this.uri}/api/unassign/${id}`);
+
+  }
+
   nearestTaskList(lat, long){
     ///api/task/listNearestTasks/:lat/:long
     return this.http.get(`${this.uri}/api/task/assign/${lat}/${long}`);
@@ -65,7 +70,7 @@ export class UserServiceService {
       latitude:latitude,
       longitude:longitude
     }
-    return this.http.post(`${this.uri}/api/user/register`,data);
+    return this.http.post(`${this.uri}/api/task/new`,data);
   }
   getTasks(){
     return this.http.get(`${this.uri}/api/task/listTasks`);

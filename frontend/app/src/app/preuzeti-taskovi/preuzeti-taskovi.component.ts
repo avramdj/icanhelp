@@ -32,4 +32,14 @@ export class PreuzetiTaskoviComponent implements OnInit {
   });
   }
 
+  delete(id:String){
+    this.userService.unassign(id).subscribe((data:Task[])=>{
+      this.mojiTaskovi.forEach(elem=>{
+        if(elem.korisnik.jmbg==id){
+          this.mojiTaskovi.splice(this.mojiTaskovi.indexOf(elem));
+        }
+      })
+    })
+  }
+
 }

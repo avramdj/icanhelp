@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../model/task';
+import { User } from '../model/user';
 import { UserServiceService } from '../user-service.service';
 
 @Component({
@@ -9,8 +10,12 @@ import { UserServiceService } from '../user-service.service';
 })
 export class SlobodniTaskoviComponent implements OnInit {
 
-  constructor(private userService:UserServiceService) { }
-
+  constructor(private userService:UserServiceService) {
+    if(localStorage.getItem('user')){
+      this.user = JSON.parse(localStorage.getItem('user'))['user'];
+    }
+   }
+  user:User;
   taskovi:Task[]=[];
   ngOnInit(): void {
 

@@ -31,5 +31,24 @@ export class MojiTaskoviComponent implements OnInit {
       
   });
   }
-
-}
+  delete(id:String){
+    this.userService.unassign(id).subscribe((data:Task[])=>{
+      this.mojiTaskovi.forEach(elem=>{
+        if(elem.korisnik.jmbg==id){
+          this.mojiTaskovi.splice(this.mojiTaskovi.indexOf(elem));
+        }
+      })
+    })
+  }
+ /*
+     delete(id1:String){
+    this.userService.unassign(id1).subscribe((data:Task[])=>{//ukloni iz slobodnih taskova u bazi
+      this.mojiTaskovi.forEach(elem=>{
+        if(elem.korisnik.jmbg==id1){
+          this.mojiTaskovi.splice(this.mojiTaskovi.indexOf(elem)); // ukloni odmah i iz moje liste
+        }
+      })
+    }
+  }
+ */ 
+} 

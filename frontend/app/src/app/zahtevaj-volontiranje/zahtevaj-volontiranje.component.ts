@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
 import { UserServiceService } from '../user-service.service';
 
 @Component({
@@ -16,11 +17,18 @@ export class ZahtevajVolontiranjeComponent implements OnInit {
   task_string:String;
   latitude:String;
   longitude:String;
-
+  user:User;
   ngOnInit(): void {
+    this.jmbg="jmbg";
+    if(localStorage.getItem('user')){
+      this.user = JSON.parse(localStorage.getItem('user'));
+      this.jmbg=this.user.jmbg;
+    }
   }
   napraviTask(){
+    
     this.userService.addTask(this.jmbg, this.task_string, this.latitude, this.longitude).subscribe(ob=>{
+      alert(1);
       console.log("Dodat task.");
     })
   }
