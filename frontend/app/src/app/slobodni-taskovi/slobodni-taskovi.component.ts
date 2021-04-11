@@ -69,7 +69,7 @@ export class SlobodniTaskoviComponent implements OnInit {
       }
       this.taskovi=data;
       for(let i = 0; i < this.taskovi.length; i++){
-              this.taskovi[i].udaljenost = distance(this.taskovi[i])
+              this.taskovi[i].udaljenost = Math.round(distance(this.taskovi[i]) * 1000)
       }
 
 
