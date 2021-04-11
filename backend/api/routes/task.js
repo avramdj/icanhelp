@@ -181,7 +181,15 @@ router.post('/new', async (req, res, next) => {
         try{
                 const taskOwner = await User.findOne({"jmbg":req.body.jmbg}).exec();
 
-                console.log(taskOwner);
+                if(taskOwner == null) {
+                        throw new Error("User not found!");
+                }
+
+                const foundTask = await Task.findOne({"request_user_id" : taskOwner._id }).exec();
+
+                if(foundTask != null) {
+                        throw new Error("User already requested a task!");
+                }
 
                 const newTask = new Task({
                         _id : new mongoose.Types.ObjectId(),
