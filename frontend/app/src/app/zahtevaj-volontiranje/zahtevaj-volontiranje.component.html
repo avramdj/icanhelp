@@ -7,11 +7,11 @@
         
     <img src="/assets/login.png" class="loginpic">
                 <input type="text" name="u" placeholder="Opis taska" required="required"  [(ngModel)]="task_string"/>
-                <input type="text" name="u" placeholder="Lokacija" required="required"  [(ngModel)]="longitude"/>
-                <input type="text" name="u" placeholder="Lokacija" required="required"  [(ngModel)]="latitude"/>
+                <input type="text" name="u" placeholder="Longituda" required="required"  [(ngModel)]="longitude"/>
+                <input type="text" name="u" placeholder="Latituda" required="required"  [(ngModel)]="latitude"/>
                 
                 <button class="ulogujse" (click)='napraviTask()'>Postavi zahtev</button>
-                       
+                <span *ngIf = 'prikazi' style="color:green">Uspesno dodat task</span>
         </form>
     </div>   
 </div>

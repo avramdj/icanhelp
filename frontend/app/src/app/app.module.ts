@@ -16,6 +16,7 @@ import { MojiTaskoviComponent } from './moji-taskovi/moji-taskovi.component';
 import { OKorisnikuComponent } from './o-korisniku/o-korisniku.component';
 import { MojiZahtevaniComponent } from './moji-zahtevani/moji-zahtevani.component';
 import { PreuzetiTaskoviComponent } from './preuzeti-taskovi/preuzeti-taskovi.component';
+import { PagenfComponent } from './pagenf/pagenf.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PreuzetiTaskoviComponent } from './preuzeti-taskovi/preuzeti-taskovi.co
     MojiTaskoviComponent,
     OKorisnikuComponent,
     MojiZahtevaniComponent,
-    PreuzetiTaskoviComponent
+    PreuzetiTaskoviComponent,
+    PagenfComponent
   ],
   imports: [
     BrowserModule,

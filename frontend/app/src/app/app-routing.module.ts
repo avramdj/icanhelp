@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { MojiTaskoviComponent } from './moji-taskovi/moji-taskovi.component';
 import { OKorisnikuComponent } from './o-korisniku/o-korisniku.component';
+import { PagenfComponent } from './pagenf/pagenf.component';
 import { PreuzetiTaskoviComponent } from './preuzeti-taskovi/preuzeti-taskovi.component';
 import { RegisterComponent } from './register/register.component';
 import { SlobodniTaskoviComponent } from './slobodni-taskovi/slobodni-taskovi.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'o-korisniku',component:OKorisnikuComponent},
   {path:'zahtevaj-volontiranje',component:ZahtevajVolontiranjeComponent},
   {path:'moji-taskovi',component:MojiTaskoviComponent},
+  { path: '**', component: PagenfComponent},
 ];
 
 

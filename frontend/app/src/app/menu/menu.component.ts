@@ -31,7 +31,10 @@ export class MenuComponent implements OnInit {
   }
 
 
-
+  logout(){
+    localStorage.clear();
+    this.preusmeri('../login');
+  }
 
 
   preusmeri(gde:string){

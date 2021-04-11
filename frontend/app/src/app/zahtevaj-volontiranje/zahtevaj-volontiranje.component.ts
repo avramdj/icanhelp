@@ -22,7 +22,7 @@ export class ZahtevajVolontiranjeComponent implements OnInit {
   ngOnInit(): void {
     this.jmbg="jmbg";
     if(localStorage.getItem('user')){
-      this.user = JSON.parse(localStorage.getItem('user'))['user'];
+      this.user = JSON.parse(localStorage.getItem('user')) ['user'];
       this.jmbg=this.user.jmbg;
     }
   }
@@ -30,12 +30,13 @@ export class ZahtevajVolontiranjeComponent implements OnInit {
   preusmeriNaMenu(){
     this.router.navigate(['../'], {relativeTo: this.route});
   }
-  
+  prikazi:Boolean;
   napraviTask(){
- 
+
     this.userService.addTask(this.jmbg, this.task_string, this.latitude, this.longitude).subscribe(ob=>{
-      console.log("Dodat task.");
-      setTimeout(this.preusmeriNaMenu.bind(this),2000);
+      console.log(ob);
+      this.prikazi=true;
+      setTimeout(this.preusmeriNaMenu.bind(this),1000);
     })
   }
 }

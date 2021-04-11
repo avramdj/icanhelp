@@ -13,14 +13,17 @@ export class LoginComponent implements OnInit {
   constructor(private route:ActivatedRoute,private router:Router, private userService:UserServiceService) { }
 
   ngOnInit(): void {
+    this.greskaPriLogovanju=false;
   }
-
+  vracen;
   username:string;
   password:string;
   isLoggedIn:boolean;
   greskaPriLogovanju:Boolean;
+
   login(){
-    this.userService.login(this.username,this.password).subscribe((user:User)=>{
+    this.userService.login(this.username,this.password).subscribe((user)=>{
+      this.vracen = user;
       if(user){
         localStorage.setItem('user',JSON.stringify(user));
         this.preusmeri('../');
@@ -31,8 +34,17 @@ export class LoginComponent implements OnInit {
         //alert("Bad data.");
         this.greskaPriLogovanju=true;
       }
+      /*if(user['message']=='success'){
+        alert('uspesno');
+      }
+      else{
+        alert('nesupesno');
+      }*/
     })
+
   }
+
+
   preusmeri(gde:string){
     this.router.navigate([gde], {relativeTo: this.route});
   }
