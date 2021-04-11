@@ -20,7 +20,7 @@ export class PreuzetiTaskoviComponent implements OnInit {
       this.user = JSON.parse(localStorage.getItem('user'))['user'];
     }
     console.log(this.user);
-    this.userService.getTasks().subscribe((data:Task[])=>{
+    this.userService.mojiTaskovi(this.user.jmbg).subscribe((data:Task[])=>{
       this.taskovi=data;
       this.taskovi.forEach(el=>{
         if(el.korisnik.jmbg==this.user.jmbg){
